@@ -132,6 +132,112 @@ float example:
       ========================================
 
 
+      same example with assiging to a variable:
+
+
+      public class ArthematicOperationDemo {
+
+          public static void main(String args[]) {
+
+              int a = 17;
+              int b = 20;
+
+              int add = a + b;
+              int sub = a - b;
+              int mul = a * b;
+              int div = a / b;
+              int modulus = a % b;
+
+              System.out.println(add);//  37
+              System.out.println(sub);//  -3
+              System.out.println(mul);// 340
+              System.out.println(div);// 0
+              System.out.println(modulus);// 17
+
+
+          }
+      }
+
+
+      ===================
+
+
+      Compound assignment operators:
+
+      public class CompoundExample {
+          public static void main(String[] args) {
+              int a = 10;
+              int b = 30;
+              int res = a + b;
+              System.out.println(res);
+              //res = res + 10; //old style
+              res+=10;
+              System.out.println(res);
+          }
+      }
+
+      =====================================
+
+
+      public class CompoundExample {
+          public static void main(String[] args) {
+              int a = 10;
+              int b = 30;
+              int res = a - b;
+              System.out.println(res);//-20
+              //res = res - 67;
+              res-=67;
+              System.out.println(res);//-87
+          }
+      }
+
+======================================================================
+
+
+public class CompoundExample {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 30;
+        int res = a * b;
+        System.out.println(res);//300
+        //res = res * 2;
+        res*=2;
+        System.out.println(res);//600
+    }
+}
+===================================================================================
+
+
+nu) Post and pre
+
+public class Other {
+
+    public static void main(String[] args) {
+        int a=10;
+        System.out.println(++a);//11
+        System.out.println(a);//11
+    }
+}
+
+
+=========================================
+
+public class PrefixandPostfix {
+
+    /**
+     * ++variable(pre increment operator)   vs variable++(post increment operator)
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        int a = 10;
+        System.out.println(a++);//10
+        System.out.println(a);//11
+    }
+}
+
+
+
 
 
 
