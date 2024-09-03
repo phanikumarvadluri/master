@@ -236,7 +236,76 @@ public class PrefixandPostfix {
     }
 }
 
+Logical Operators:
 
+
+public class LogicalOperators {
+
+    public static void main(String[] args) {
+        //  &&, ||
+        /*
+        &&
+        =============
+        TRUE && TRUE= TRUE
+        TRUE && FALSE= FALSE
+        FALSE && TRUE= FALSE
+        FLASE && FALSE= FALSE
+        ||
+        TRUE || TRUE= TRUE
+        TRUE || FALSE= TRUE
+        FALSE || TRUE= TRUE
+        FLASE || FALSE= FALSE
+         */
+        boolean a = true;
+        boolean b= true;
+
+        System.out.println(a&&b); // true
+        System.out.println(a||b);//  true
+    }
+}
+
+=======================================================================
+
+
+Other example:
+
+ public static void main(String[] args) {
+        //  &&, ||
+        /*
+        &&
+        =============
+        TRUE && TRUE= TRUE
+        TRUE && FALSE= FALSE
+        FALSE && TRUE= FALSE
+        FLASE && FALSE= FALSE
+        ||
+        TRUE || TRUE= TRUE
+        TRUE || FALSE= TRUE
+        FALSE || TRUE= TRUE
+        FLASE || FALSE= FALSE
+         */
+        boolean a = false;
+        boolean b = true;
+        boolean c = false;
+        System.out.println((a && b) || (a || c)); //    false  ---> (false  || false) ---false
+        System.out.println((a || b) && (b && c));  //   false ----> (true && false)--- false
+
+    }
+
+    ====================================
+
+    Relational Operators:
+
+
+    public class RelationalOperators {
+
+        public static void main(String[] args) {
+            //> , >=, <,<=,==,!=
+            int a = 12;
+            int b = 10;
+            System.out.println(a > b);
+        }
+    }
 
 
 
