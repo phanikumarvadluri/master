@@ -308,6 +308,86 @@ Other example:
     }
 
 
+    ====================================
+    if statement--(if else)
+
+    public class IfelseExample {
+
+        public static void main(String[] args)
+        {
+            boolean flag=true;
+            if(flag)
+            {
+                System.out.println("flag value is true");
+            }
+            else{
+                System.out.println("flag value is false");
+            }
+        }
+    }
+    =====================================================
+
+
+    public class IfelseExample {
+
+        public static void main(String[] args)
+        {
+            int a=20;
+            int b=10;
+            if(a>b)   //if(true)
+            {
+                System.out.println("a is big!");
+            }
+            else{
+                System.out.println("b is big!");
+            }
+        }
+    }
+
+
+==========================================================================
+
+public class IfelseExample {
+
+    public static void main(String[] args) {
+        int a = 30;
+        int b = 20;
+        int c = 10;
+
+        if (a > b && a > c)  // if(true && true)--true
+        {
+            System.out.println("a is big");
+        } else if (b > a && b > c) {
+            System.out.println("b is big");
+        } else {
+            System.out.println("c is big!");
+        }
+    }
+}
+=======================================================
+
+public class IfelseExample {
+
+    public static void main(String[] args) {
+       int number=-10;
+
+       if(number>0)// false
+       {
+           System.out.println("Possitive number");
+       }
+       else if(number==0)  //false
+       {
+           System.out.println("Number is zero");
+       }
+       else{
+           System.out.println("negative number");
+       }
+    }
+}
+
+=========================================================
+
+
 
 
 
