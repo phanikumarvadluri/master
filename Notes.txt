@@ -387,6 +387,37 @@ public class IfelseExample {
 
 =========================================================
 
+Calengine Project:
+
+public class Calengine {
+
+    public static void main(String[] args) {
+
+        double val1 = 10.9d;
+        double val2 = 89.9d;
+        char ops = 'd';
+        double res = 0.0;
+
+        if (ops == 'a') {  // false
+            res = val1 + val2;
+        }
+        else if (ops == 's') { // false
+            res = val1 - val2;
+        }
+        else if (ops == 'm') {// false
+            res = val1 * val2;
+        }
+        else if (ops == 'd') {
+            res = val1 / val2;   //res= 10.9/89.9d====
+        }
+        else if (ops == 'r') {
+            res = val1 % val2;
+        }
+        System.out.println("Res " + res);
+
+    }
+}
+
 
 
 
