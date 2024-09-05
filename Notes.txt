@@ -472,6 +472,57 @@ public class CalengineWithCase {
 }
 ====================================================
 
+For loop:
+
+
+public class ForEachExample {
+
+    public static void main(String args[]) {
+
+        //for(inilize ; condition; increament)
+        for (int j = 0; j <= 10000; j++) {
+            System.out.println(j);
+        }
+    }
+}
+=========================================================
+
+
+While Loop:
+
+
+public class WhileLoop {
+
+    public static void main(String[] args) {
+
+
+        int res = 1;
+        while (res <= 10) {
+            System.out.println(res);
+            res++;
+        }
+    }
+}
+
+
+==========================================
+
+Dowhile:
+
+public class DoWhile {
+
+    public static void main(String[] args) {
+        int res=1;
+        do {
+            System.out.println(res);
+            res++;
+        }
+        while (res<10);
+    }
+}
+
+
+
 
 
 
