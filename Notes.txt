@@ -418,6 +418,46 @@ public class Calengine {
     }
 }
 
+==========================
+
+
+Switch Statement:
+
+
+public class CalengineWithCase {
+    public static void main(String args[]) {
+        double a = 23.0d;
+        double b = 11.0d;
+        char ops = 'z';
+        double res = 0.0d;
+        switch (ops) {
+            case 'a':
+                res = a + b;
+                break;
+            case 's':
+                res = a - b;
+                break;
+
+            case 'm':
+                res = a * b;
+                break;
+
+            case 'd':
+                res = a / b;
+                break;
+
+            case 'r':
+                res = a % b;
+                break;
+
+            default:
+                System.out.println("Entered invalid ops code");
+        }
+        System.out.println(res);
+    }
+}
+====================================================
+
 
 
 
