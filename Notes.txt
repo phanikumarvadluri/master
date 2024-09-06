@@ -520,6 +520,125 @@ public class DoWhile {
         while (res<10);
     }
 }
+====================
+
+fot inside for
+
+
+
+public class ForLoopEx2 {
+
+    public static void main(String[] args) {
+        for(int i=1;i<=5;i++)
+        {
+            System.out.println(i);
+
+            for(int j=1;j<=3;j++)
+            {
+                System.out.println("Inner Loop j"+ j);
+            }
+        }
+    }
+}
+=========================================================
+sum of numbers using for loop
+
+
+public class SumOfNumbers {
+
+    public static void main(String[] args) {
+
+        int sum = 0;
+
+        for (int i = 0; i <= 10; i++) {
+            sum = sum + i;
+        }
+
+        System.out.println(sum);
+
+    }
+}
+
+=====================================================================
+
+SQRT:
+
+
+public class Mathopers {
+
+    public static void main(String[] args) {
+
+        int num=25;
+
+        double sqrt = Math.sqrt(num);
+
+        System.out.println(sqrt);
+
+    }
+
+}
+==========================================================
+
+public class PrimeNumbers {
+
+    public static void main(String[] args) {
+        for (int i = 2; i <= 100; i++) {
+            boolean isPrime = true;
+            for (int j = 2; j <= Math.sqrt(i); j++) {  // Only check up to the square root of i
+                if (i % j == 0) {  // If divisible by any number, it's not prime
+                    isPrime = false;
+                    break;
+                }
+            }
+            // If the number is prime, print it
+            if (isPrime) {
+                System.out.print(i + " ");
+            }
+
+        }
+    }
+}
+
+//Explanation
+//Outer loop (for (int i = 2; i <= range; i++)) iterates through each number in the range.
+//        Inner loop (for (int j = 2; j <= Math.sqrt(i); j++)) checks if the current number i is divisible by any number up to its square root.
+//If a number is divisible by any number other than 1 and itself, it is not prime.
+
+
+=====================================================
+
+
+public class Whileloopsample {
+
+    public static void main(String[] args) {
+        int number = 9999;// 1+2+3+4=10//   3467=20
+        int sum = 0;
+        while (number > 0) {
+            sum = sum + number % 10;// sum=0+4// sum=4
+            number = number / 10;// 1234/10=123
+        }
+        System.out.println(sum);
+    }
+}
+
+
+====================================================
+
+public class Whileloopsample {
+
+    public static void main(String[] args) {
+        int number = 88878;//   0
+        int sum = 0;
+        while (number > 0) {
+            sum = sum + number % 10;
+            number = number / 10;
+            System.out.println(sum);
+        }
+    }
+}
+
+
+======================
 
 
 
