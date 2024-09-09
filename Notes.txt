@@ -723,6 +723,46 @@ Arrays:
 
     ===============================
 
+    package basics;
+
+    public class CalenginewithArrays {
+
+    //    double[] values1=new double[5];
+    //    values1[0]=100.0d;
+    //    values1[1]=200.0d;
+    //    values1[2]=250.0d;
+    //    values1[3]=600.0d;
+    //    values1[4]=840.0d;
+
+        public static void main(String[] args) {
+
+            double[] values1 = {100.0d, 200.0d, 250.0d, 600.0d, 840.0d};
+            double[] values2 = {50.0d, 150.0d, 200.0d, 300.0d, 440.0d};
+            char[] opsCodes = {'a', 's', 'm', 'd', 'r'};
+            double[] res = {0.0, 0.0, 0.0, 0.0, 0.0};
+
+            for (int i = 0; i < opsCodes.length; i++) {
+                if (opsCodes[i] == 'a') {
+                    res[i] = values1[i] + values2[i];
+                } else if (opsCodes[i] == 's') {
+                    res[i] = values1[i] - values2[i];
+                } else if (opsCodes[i] == 'm') {
+                    res[i] = values1[i] * values2[i];
+                } else if (opsCodes[i] == 'd') {
+                    res[i] = values1[i] / values2[i];
+                } else if (opsCodes[i] == 'r') {
+                    res[i] = values1[i] % values2[i];
+                }
+            }
+
+            for (int i = 0; i < res.length; i++) {
+                System.out.println(res[i]);
+            }
+
+        }
+    }
+==================================================
+
 
 
 
