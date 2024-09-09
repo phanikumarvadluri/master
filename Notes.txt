@@ -663,6 +663,65 @@ public class ArrayExample {
 
     }
 }
+========================================================================
+
+
+Arrays:
+
+    public static void main(String[] args) {
+
+
+           double[] values=new double[3];
+
+           values[0]=10.9d;
+           values[1]=55.0d;
+           values[2]=99.9d;
+
+           for(int i=0;i<values.length;i++)
+           {
+               System.out.println(values[i]);
+           }
+
+    }
+}
+
+
+=============================================
+
+ public static void main(String[] args) {
+
+        int a=10;
+// one way
+        int[] values=new int[5];
+
+        values[0]=10;
+        values[1]=20;
+        values[2]=30;
+        values[3]=40;
+        values[4]=60;
+
+        for(int i=0;i<values.length;i++)
+        {
+            System.out.println(values[i]);
+        }
+    }
+
+    ==========================
+
+
+    public static void main(String[] args) {
+
+
+           double[] values= {10.9d,55.0d,99.9d};
+
+        for(int i=0;i<values.length;i++)
+           {
+               System.out.println(values[i]);
+           }
+
+    }
+
+    ===============================
 
 
 
