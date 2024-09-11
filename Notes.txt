@@ -929,8 +929,101 @@ public class FirstClass {
 }
 =============================================
 
+static methods
+
+package com.phani.staticmethods;
+
+public class FirstApplication {
+    public static void main(String[] args) {
 
 
+      // calling static method m1--> using class name
+        FirstApplication.m1();
+        //calling static method m2--> using class name
+
+        FirstApplication.m2();
+
+
+    }
+
+    //create static method
+    public static void m1()
+    {
+        System.out.println("This is fist static method");
+    }
+    public static void m2()
+    {
+        System.out.println("This is second static method");
+    }
+
+}
+
+=====================================================================
+
+package com.phani.staticmethods;
+
+public class SecondAppliation {
+
+    public static void main(String[] args) {
+        int res = 10;
+        SecondAppliation.m1(res);
+        int val1=10;
+        int val2=20;
+        SecondAppliation.m2(val1, val2);
+    }
+
+    // passing one parameter int for static method m1
+    public static void m1(int a) {
+        System.out.println(a);
+    }
+
+    // passing multiple (2) parameters for m2
+    public static void m2(int a, int b) {
+        System.out.println(a + b);
+    }
+}
+=======================================================
+
+package com.phani.staticmethods;
+
+public class ThirdApplication {
+
+    public static void main(String[] args) {
+
+        ThirdApplication.add(55.5d,66d);
+    }
+
+
+    public static void add(double a,double b)
+    {
+        System.out.println("adding");
+        System.out.println(a+b);
+    }
+}
+===============================
+
+package com.phani.staticmethods;
+
+public class FifthApplication {
+    public static void main(String[] args) {
+        FifthApplication.add(4, 5, 6);
+        int output = FifthApplication.addReturn(10, 5, 6);
+        System.out.println(output);
+    }
+
+
+    public static void add(int a, int b, int c) {
+        int res = a + b + c;
+        System.out.println("add void " + res);
+    }
+
+    public static int addReturn(int a, int b, int c) {
+        int res = a + b + c;
+        return res;
+    }
+}
+
+======================================================
 
 
 
