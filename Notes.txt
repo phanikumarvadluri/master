@@ -1025,6 +1025,74 @@ public class FifthApplication {
 
 ======================================================
 
+Using calengine:
+
+package com.phani.basics;
+
+public class CalEngine {
+
+    public static void main(String[] args) {
+        double val1[] = {10d, 20d, 30d};
+        double val2[] = {5d, 15d, 15d};
+        char opsCode[] = {'a', 's', 'm'};
+        double res[] = {0, 0, 0};
+        calOperaion(opsCode, res, val2, val1);
+    }
+
+    public static void calOperaion(char opsCode[], double res[], double val2[], double val1[]) {
+        for (int i = 0; i < opsCode.length; i++) {
+            if (opsCode[i] == 'a') {
+                res[i] = val1[i] + val2[i];
+            } else if (opsCode[i] == 's') {
+                res[i] = val1[i] - val2[i];
+            } else if (opsCode[i] == 'm') {
+                res[i] = val1[i] * val2[i];
+            }
+        }
+
+        System.out.println("Result is");
+        for (int i = 0; i < res.length; i++) {
+            System.out.println(res[i]);
+        }
+    }
+}
+
+====================================
+
+
+Calengine with return:
+
+package com.phani.basics;
+
+public class CalEnginewithReturn {
+
+    public static void main(String[] args) {
+        double val1[] = {10d, 20d, 30d};
+        double val2[] = {5d, 15d, 15d};
+        char opsCode[] = {'a', 's', 'm'};
+        double res[] = {0, 0, 0};
+        double[] res1 = calOperaion(opsCode, res, val2, val1);
+        for (int i = 0; i < res1.length; i++) {
+            System.out.println(res1[i]);
+        }
+    }
+
+    public static double[] calOperaion(char opsCode[], double res[], double val2[], double val1[]) {
+        for (int i = 0; i < opsCode.length; i++) {
+            if (opsCode[i] == 'a') {
+                res[i] = val1[i] + val2[i];
+            } else if (opsCode[i] == 's') {
+                res[i] = val1[i] - val2[i];
+            } else if (opsCode[i] == 'm') {
+                res[i] = val1[i] * val2[i];
+            }
+        }
+        return res;
+    }
+}
+
+=====================================================
+
 
 
 
