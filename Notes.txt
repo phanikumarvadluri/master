@@ -1093,6 +1093,107 @@ public class CalEnginewithReturn {
 
 =====================================================
 
+package basics;
+
+public class StaticExample {
+
+    public static void main(String[] args) {
+        StaticExample.m1();//
+        int a = 10;
+        int b = 20;
+        StaticExample.m2(a, b);
+        int[] arr = new int[3];
+        arr[0] = 9;
+        arr[1] = 10;
+        arr[2] = 20;
+        StaticExample.m3(arr);
+        String res=StaticExample.m4();
+        System.out.println(res);
+        String phani = StaticExample.m5("PHANI");
+        System.out.println(phani);
+
+        int[] ints = StaticExample.m6();
+        for(int i=0;i<ints.length;i++){
+            System.out.println(ints[i]);
+        }
+
+    }
+
+    public static String m4()
+    {
+        return "Phani";
+    }
+    public static String m5(String input)
+    {
+        return input;
+    }
+
+    public static int[] m6()
+    {
+        int[] res=new int[2];
+        res[0]=10;
+        res[1]=20;
+        return res;
+    }
+
+
+    public static void m1() {
+        System.out.println("this is m1 method");
+    }
+
+    public static void m2(int a, int b) {
+        System.out.println(a + b);
+    }
+
+    public static void m3(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum = sum + arr[i];
+        }
+        System.out.println(sum);
+    }
+}
+=============================================================================
+
+package basics;
+
+public class NonStaicMethod {
+
+    public static void main(String[] args) {
+
+        NonStaicMethod.m1();
+        NonStaicMethod p = new NonStaicMethod();
+        p.m2();
+        String[] values = new String[2];
+        values[0] = "SANTHOSH";
+        values[1] = "SREEKAR";
+        String[] res = p.res(values);
+        for (int i = 0; i < res.length; i++) {
+            System.out.println(res[i]);
+        }
+
+
+    }
+
+    public static void m1() {
+        System.out.println("this is m1 method");
+    }
+
+    public void m2() {
+        System.out.println("m2");
+    }
+
+    public String[] res(String[] input) {
+        String[] res = new String[input.length];
+        for (int i = 0; i < input.length; i++) {
+            res[i] = input[i].toLowerCase();
+        }
+        return res;
+    }
+
+}
+=============================
+
 
 
 
