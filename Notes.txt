@@ -1194,6 +1194,138 @@ public class NonStaicMethod {
 }
 =============================
 
+Reverse string using static method without return
+
+package methods;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        //"phani"
+        //"inahp
+        //"priyanka"
+        //aknayirp"
+        ReverseString.reverseString("hello");
+    }
+
+    public static void reverseString(String input)
+    {
+        String output="";
+        char[] charArray = input.toCharArray();
+        for(int i=charArray.length-1;i>=0;i--)
+        {
+            output=output+charArray[i];
+        }
+        System.out.println(output);
+    }
+}
+============================================================
+
+Reverse string using static method with return
+
+package methods;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        //"phani"
+        //"inahp
+        //"priyanka"
+        //aknayirp"
+        String hello = ReverseString.reverseString("hello");
+        System.out.println(hello);
+    }
+
+    public static String reverseString(String input)
+    {
+        String output="";
+        char[] charArray = input.toCharArray();
+        for(int i=charArray.length-1;i>=0;i--)
+        {
+            output=output+charArray[i];
+        }
+        //System.out.println(output);
+        return output;
+
+    }
+}
+======================================================================
+
+Reverse string using non-static method with return
+
+package methods;
+
+public class ReverseString {
+    public static void main(String[] args) {
+        //"phani"
+        //"inahp
+        //"priyanka"
+        //aknayirp"
+        ReverseString reverseString=new ReverseString();
+        String hello = reverseString.reverseString("hello");
+        System.out.println(hello);
+    }
+
+    public  String reverseString(String input)
+    {
+        String output="";
+        char[] charArray = input.toCharArray();
+        for(int i=charArray.length-1;i>=0;i--)
+        {
+            output=output+charArray[i];
+        }
+        //System.out.println(output);
+        return output;
+
+    }
+}
+===================================================================
+
+
+samples add
+
+package methods.classbasics;
+
+public class Add {
+
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int addThree(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static int addFour(int a, int b, int c,int d) {
+        return a + b + c+d;
+    }
+}
+
+=========================================================
+Test class to Test Add class
+
+package methods.classbasics;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Add a=new Add();
+        int res=a.add(10,20);
+        System.out.println(res);
+
+        int sum=a.addThree(10,20,30);
+        System.out.println(sum);
+
+
+        int i = Add.addFour(10, 20, 30, 40);
+        System.out.println(i);
+
+
+    }
+}
+
+
+==================================================================
+
 
 
 
