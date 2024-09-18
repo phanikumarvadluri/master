@@ -1,0 +1,33 @@
+kafka:
+
+
+1)	GO to KAFKA downloads
+              https://kafka.apache.org/downloads
+
+•	Scala 2.13  - kafka_2.13-3.8.0.tgz (asc, sha512)
+
+2)	 https://www.kafkatool.com/download.html
+
+
+C:\kafka\kafka_2.13-3.8.0
+
+1)	We need to start zookeeper:   
+bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+2)	We need to start KAFKA:
+bin\windows\kafka-server-start.bat config\server.properties
+
+3)	Create a kafka topic:
+bin\windows\kafka-topics.bat --create --topic associate-topic --bootstrap-server localhost:9092
+
+4)	Message producer:
+bin\windows\kafka-console-producer.bat  --broker-list localhost:9092  --topic associate-topic
+
+5)	Message Receiver:
+bin\windows\kafka-console-consumer.bat  --bootstrap-server  localhost:9092 --topic associate-topic --from-beginning
+
+
+
+
+
+
+
