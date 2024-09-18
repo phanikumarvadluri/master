@@ -1325,6 +1325,224 @@ public class Main {
 
 
 ==================================================================
+Non static Varible- non static method:
+
+package methods.classbasics;
+
+public class Account {
+     String name="phani";
+     double salary=9000;
+
+
+    public  void accountDetails()
+    {
+        System.out.println(name);
+        System.out.println(salary);
+    }
+
+}
+===
+package methods.classbasics;
+
+public class AccountTest {
+    public static void main(String[] args) {
+
+        Account account=new Account();
+        account.accountDetails();
+    }
+}
+
+============================================================
+
+static variable= staic method:
+
+package methods.classbasics;
+
+public class Bank {
+
+    static String name="kotak";
+    static double stockprice=1900;
+
+
+
+    public static void getBankDetails()
+    {
+        System.out.println(name);
+        System.out.println(stockprice);
+    }
+}
+===
+package methods.classbasics;
+
+public class BankTest {
+    public static void main(String[] args) {
+
+
+        Bank.getBankDetails();
+    }
+}
+==========================================================
+
+package methods.classbasics;
+
+public class Account2 {
+
+
+    public  void accountDetails(String name,double salary)
+    {
+        System.out.println(name);
+        System.out.println(salary);
+    }
+
+}
+
+======================
+package methods.classbasics;
+
+public class AccountTest {
+    public static void main(String[] args) {
+
+        Account account=new Account();
+        account.accountDetails();
+
+        Account2 account2=new Account2();
+        account2.accountDetails("phani",19000);
+        account2.accountDetails("reavali",900000);
+        account2.accountDetails("bindu",852222);
+        account2.accountDetails("niharka",852222);
+        account2.accountDetails("sreekar",852222);
+    }
+}
+======================================================================
+
+	                          same class	same package	different package
+public	                                Y	       Y	       Y
+private                               	Y	       N	       N
+default	                                Y	       Y	       N
+protected	                            Y	       Y	       N
+====================================
+constuctor example:
+
+==============================
+package methods.classbasics;
+
+public class Job {
+
+    String name;
+    String role;
+    int id;
+   //consttuvtor
+    Job()
+    {
+        name="phani";
+        role="senior developer";
+        id=1000;
+    }
+
+    public  void jobDetails()
+    {
+        System.out.println(name);
+        System.out.println(role);
+        System.out.println(id);
+    }
+}
+===========
+package methods.classbasics;
+
+public class JobMain {
+
+    public static void main(String[] args) {
+
+        Job job=new Job();
+        job.jobDetails();
+
+
+    }
+}
+====================================================
+
+package methods.classbasics;
+
+public class Job {
+
+    String name;
+    String role;
+    int id;
+
+    Job()
+    {
+        System.out.println("default constutor");
+    }
+
+    Job(String jobName, String jobRole, int jobId) {
+        name = jobName;
+        role = jobRole;
+        id = jobId;
+    }
+
+    public void jobDetails() {
+        System.out.println(name);
+        System.out.println(role);
+        System.out.println(id);
+    }
+}
+===========================
+package methods.classbasics;
+
+public class JobMain {
+
+    public static void main(String[] args) {
+
+       Job job=new Job("Senior Applicaiopn Developer","Developer",10000);
+       job.jobDetails();
+
+
+
+    }
+}
+========================================================================
+
+This keyword:
+
+==================
+package methods.classbasics;
+
+public class Job {
+
+    String name;
+    String role;
+    int id;
+
+    Job()
+    {
+        System.out.println("default constutor");
+    }
+
+    Job(String name, String role, int id) {
+        this.name = name;
+        this.role = role;
+        this.id = id;
+    }
+
+    public void jobDetails() {
+        System.out.println(name);
+        System.out.println(role);
+        System.out.println(id);
+    }
+}
+=========
+package methods.classbasics;
+
+public class JobMain {
+
+    public static void main(String[] args) {
+
+       Job job=new Job("Senior Applicaiopn Developer","Developer",10000);
+       job.jobDetails();
+    }
+}
+===========
+
 
 
 
