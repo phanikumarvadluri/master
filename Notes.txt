@@ -1542,8 +1542,169 @@ public class JobMain {
     }
 }
 ===========
+calling / accesssing non static variable directly is not a good practice like below
+
+package methods.classbasics;
 
 
+public class Flight {
+// Created public varible
+    public int seats;
+}
+===
+package methods.classbasics;
+
+public class FlightTest {
+
+    public static void main(String[] args) {
+        Flight flight=new Flight();
+        flight.seats=1000;
+        System.out.println(flight.seats);
+    }
+}
+=====
+we can not call variable directly , instead we can use setters and getters
+ //setters & getters
+package methods.classbasics;
+
+
+public class Flight {
+    private int seats;
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+}
+
+
+=============
+package methods.classbasics;
+
+public class FlightTest {
+
+    public static void main(String[] args) {
+        Flight flight=new Flight();
+
+        flight.setSeats(10);
+        int seats = flight.getSeats();
+        System.out.println(seats);
+
+    }
+}
+=====================================================
+example2:
+
+package methods.classbasics;
+
+
+public class Flight {
+    // encapsuation
+    private int seats;
+    private int passenger;
+
+
+
+
+
+    public void setSeats(int seats)
+    {
+        this.seats=seats;
+    }
+
+    public int getSeats(){
+        return seats;
+    }
+
+    public void setPassenger(int passenger)
+    {
+        this.passenger=passenger;
+    }
+
+    public int getPassenger()
+    {
+        return passenger;
+    }
+
+
+}
+=====
+
+package methods.classbasics;
+
+public class FlightTest {
+
+    public static void main(String[] args) {
+        Flight flight=new Flight();
+
+        flight.setSeats(110);
+        flight.setPassenger(10000);
+
+        int seats = flight.getSeats();
+        int passenger = flight.getPassenger();
+
+        System.out.println(seats);
+        System.out.println(passenger);
+
+
+    }
+}
+=======================================================
+
+Parameter constuctor & getter methods:
+
+package methods.classbasics;
+
+
+public class Flight {
+    // encapsuation
+    private int seats;
+    private int passenger;
+
+    public Flight(int seats, int passenger) {
+        this.seats = seats;
+        this.passenger = passenger;
+    }
+
+    public Flight() {
+    }
+//setters & getters
+
+
+    public int getSeats(){
+        return seats;
+    }
+
+
+    public int getPassenger()
+    {
+        return passenger;
+    }
+
+
+}
+=============================
+package methods.classbasics;
+
+public class FlightTest {
+
+    public static void main(String[] args) {
+        Flight flight=new Flight(100,90);
+
+
+        int seats = flight.getSeats();
+        int passenger = flight.getPassenger();
+
+        System.out.println(seats);
+        System.out.println(passenger);
+
+
+    }
+}
+==========================================================================================
 
 
 
