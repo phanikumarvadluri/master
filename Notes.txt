@@ -1706,6 +1706,194 @@ public class FlightTest {
 }
 ==========================================================================================
 
+setters and constuctor example:
+
+
+package methods.classbasics;
+
+public class Product {
+    private int productId;
+    private String name;
+    private String category;
+    private double price;
+
+
+    public Product() {
+    }
+
+    public Product(int productId) {
+        this.productId=productId;
+    }
+
+    public Product(int productId,String name, String category, double price) {
+        this(productId);
+        //this.productId=productId;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+
+    public String getCategory() {
+        return category;
+    }
+
+
+    public double getPrice() {
+        return price;
+    }
+
+
+}
+
+
+=============
+package methods.classbasics;
+
+public class ProductTest {
+
+    public static void main(String[] args) {
+
+        Product product=new Product(10,"Aamzon didgital","Mobile",999);
+
+        int productId = product.getProductId();
+
+        System.out.println(productId);
+
+
+    }
+}
+========================================================
+
+Inheritence:
+
+package methods.classbasics;
+
+public class Parent {
+
+    public void m1()
+    {
+        System.out.println("m1 method!!!");
+    }
+
+}
+==================
+package methods.classbasics;
+
+public class Child extends Parent {
+    public void m2() {
+        System.out.println("m2 method!!!");
+    }
+}
+================================
+
+package methods.classbasics;
+
+public class InheritenceExample {
+
+    public static void main(String[] args) {
+        Child child=new Child();
+        child.m2();
+        child.m1();
+    }
+}
+===========================================
+========================================================
+
+
+package methods.classbasics;
+
+public class Vehicle {
+
+    private String brand;
+    private int speed;
+
+    public Vehicle()
+    {
+    }
+    public Vehicle(String brand,int speed)
+    {
+        this.brand=brand;
+        this.speed=speed;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void display()
+    {
+        System.out.println("Brand is "+ brand+"speed is "+speed);
+    }
+}
+=================================
+package methods.classbasics;
+
+public class Car extends Vehicle {
+    private int doors;
+
+    public Car()
+    {
+
+    }
+
+    public Car(String brand,int speed,int doors)
+    {
+        super(brand,speed);
+        this.doors=doors;
+    }
+
+    public int getDoors() {
+        return doors;
+    }
+
+    public void display()
+    {
+        super.display();
+        System.out.println("Door car"+doors);
+    }
+}
+=================
+
+package methods.classbasics;
+
+public class Bus extends Vehicle {
+    private int passengerCapacity;
+
+   public Bus()
+   {
+
+   }
+
+    public Bus(String brand,int speed,int passengerCapacity)
+    {
+        super(brand,speed);
+        this.passengerCapacity=passengerCapacity;
+    }
+
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
+
+    public void display(){
+       super.display();
+       System.out.println(passengerCapacity);
+    }
+}
+
 
 
 
