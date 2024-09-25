@@ -1893,7 +1893,117 @@ public class Bus extends Vehicle {
        System.out.println(passengerCapacity);
     }
 }
+===========================
 
+Method Overaloading: Any number of methods with the same name but they take diffferent number/type of arguments
+
+package methods.classbasics;
+
+public class MethodOverloading {
+    public int add(int a,int b)
+    {
+        return a+b;
+    }
+
+    public int add(int a,int b,int c)
+    {
+        return a+b+c;
+    }
+
+    public int add(int a,int b,int c,int d)
+    {
+        return a+b+c+d;
+    }
+
+    public String add(String firstName,String lastName)
+    {
+        return firstName+ "  "+lastName;
+    }
+}
+=====================
+
+package methods.classbasics;
+
+public class Tester {
+
+    public static void main(String[] args) {
+
+        //method name= add, parameters 2
+        // non static method--- c
+
+        MethodOverloading methodOverloading=new MethodOverloading();
+        int res=methodOverloading.add(10,20);
+        System.out.println(res);
+
+
+        String add = methodOverloading.add("Phani", "V");
+
+        System.out.println(add);
+
+    }
+}
+====================
+method overrding:
+
+package methods.classbasics;
+
+public class Animal {
+
+    public void sound()
+    {
+        System.out.println("Animal Make sound");
+    }
+
+    public void eat()
+    {
+        System.out.println("Eat");
+    }
+}
+
+
+==============
+
+package methods.classbasics;
+
+public class Dog extends  Animal{
+
+    public void sound()
+    {
+        System.out.println("Dog Make sound- Barks");
+    }
+}
+=============
+
+package methods.classbasics;
+
+public class Cat extends  Animal{
+
+    public void sound()
+    {
+        System.out.println("Cat Make sound- Meooooowwww");
+    }
+}
+==========
+
+package methods.classbasics;
+
+public class AnimalTest {
+
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.eat();
+        animal.sound();
+
+        Cat cat = new Cat();
+        cat.eat();
+        cat.sound();
+
+        Dog dog = new Dog();
+        dog.eat();
+        dog.sound();
+    }
+}
+=================================
 
 
 
