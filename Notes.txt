@@ -1419,7 +1419,7 @@ public class AccountTest {
 public	                                Y	       Y	       Y
 private                               	Y	       N	       N
 default	                                Y	       Y	       N
-protected	                            Y	       Y	       N
+protected	                            Y	       Y	       Y(subclass)
 ====================================
 constuctor example:
 
