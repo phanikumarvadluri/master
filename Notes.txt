@@ -2005,6 +2005,180 @@ public class AnimalTest {
 }
 =================================
 
+Parent class referene to Sub class..
+
+
+package methods.Inheritence;
+
+public class Parent {
+
+    public void m1()
+    {
+        System.out.println("this is m1");
+    }
+}
+==
+package methods.Inheritence;
+
+public class Sub extends  Parent{
+    // one method
+}
+
+======package methods.Inheritence;
+
+      public class Main {
+
+          public static void main(String[] args) {
+
+              Parent p=new Parent();
+              p.m1();
+              //i can create sub  class object using parent class reference
+              Parent sub=new Sub();
+              sub.m1();
+          }
+      }
+===================================================================================================
+
+Final Variable:
+
+package methods.Inheritence;
+
+public class FinalExample {
+    public static void main(String[] args) {
+
+        final int a=10;
+        a=90;// compilation error: immutable
+        System.out.println(a);
+    }
+}
+====================================
+
+final method:
+
+if put final to a methdod- we can not override in sub class
+
+package methods.Inheritence;
+
+public class Parent {
+
+    public void m1()
+    {
+        System.out.println("this is m1");
+    }
+
+    public final  void m2()
+    {
+        System.out.println("this is m2");
+    }
+}
+==
+package methods.Inheritence;
+
+public class Sub extends  Parent{
+    // one method
+
+    public void m1()
+    {
+        System.out.println("this is m1 child");
+    }
+
+    public void m2()
+    {
+        System.out.println("this is m1 child");
+    }// compilation ERROR
+
+}
+==
+package methods.Inheritence;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Parent p=new Parent();
+        p.m1();
+        //i can create sub  class object using parent class reference
+        Parent sub=new Sub();
+        sub.m1();
+        sub.m2();
+    }
+}
+==============================================================================
+
+package methods.Inheritence;
+
+public class BankAccount {
+
+    private double balance;
+
+    BankAccount() {
+
+    }
+
+    BankAccount(double balance) {
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposit amount " + amount);
+    }
+
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("withdraw amount" + amount);
+        } else {
+            System.out.println("Insufficient funds");
+        }
+    }
+
+    public void checkBalance() {
+        System.out.println("Current Balance" + balance);
+    }
+
+}
+===
+package methods.Inheritence;
+
+public class SavingAccount extends BankAccount {
+
+    private double interestRate;
+
+    SavingAccount()
+    {
+
+    }
+
+    SavingAccount(double balance,double interestRate)
+    {
+        super(balance);// calling parent class constuctor
+        this.interestRate=interestRate;
+    }
+
+    public void addInterest(double balance){
+        double interest=balance*interestRate/100;
+        deposit(interest);
+        System.out.println("Interest added"+ interest);
+    }
 
 
 
+
+
+}
+===
+package methods.Inheritence;
+
+public class BankMain {
+    public static void main(String[] args) {
+        SavingAccount savingAccount=new SavingAccount(1000,5);
+
+        savingAccount.checkBalance(); //1000
+        savingAccount.deposit(500);//500==1500
+        savingAccount.withdraw(200); //200==1300
+        savingAccount.addInterest(1000);//==1350
+        savingAccount.checkBalance();
+    }
+}
+============================
