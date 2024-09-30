@@ -2182,3 +2182,60 @@ public class BankMain {
     }
 }
 ============================
+
+Interface:
+
+package methods.interfaceconcept;
+
+public interface Parent {
+    public abstract void m1();
+    public abstract void m2();
+    default public void m3(){
+    }
+}
+===
+package methods.interfaceconcept;
+
+public class ParentImpl implements Parent {
+    public void m1(){
+        System.out.println("M1");
+    }
+    public void m2(){
+        System.out.println("M2");
+    }
+
+}
+==
+package methods.interfaceconcept;
+
+public class ParentImpl2 implements Parent{
+
+    public void m1() {
+      System.out.println("m1");
+    }
+
+    public void m2() {
+        System.out.println("m2");
+    }
+
+    public void m3() {
+        System.out.println("m3");
+    }
+}
+===
+package methods.interfaceconcept;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ParentImpl parent=new ParentImpl();
+        parent.m1();
+        parent.m2();
+
+
+        ParentImpl2 parent2=new ParentImpl2();
+        parent2.m1();
+        parent2.m2();
+    }
+}
+======
