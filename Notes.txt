@@ -2192,6 +2192,9 @@ public interface Parent {
     public abstract void m2();
     default public void m3(){
     }
+     public static void m4() {
+            System.out.println("static");
+        }
 }
 ===
 package methods.interfaceconcept;
@@ -2221,6 +2224,7 @@ public class ParentImpl2 implements Parent{
     public void m3() {
         System.out.println("m3");
     }
+
 }
 ===
 package methods.interfaceconcept;

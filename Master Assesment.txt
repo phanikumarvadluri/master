@@ -1,0 +1,205 @@
+Q1 : You have been given three numbers x, y and target as input. Return true if both x and y are greater than target.
+greaterThanTarget(2,3,1) = true (2>1 and 3>1)
+greaterThanTarget(12,43,15) = false (12<15)
+greaterThanTarget(66,3,3) = false (3=3)
+
+Q2 : You have been given two numbers a and b and a boolean bool as input. If bool is true return the value of a^2+b^2. If bool is false return the value of a^4 + 10b.
+compute(3,5,true) = 34 (3^2+5^2 = 9+25 = 34)
+compute(2,6,false) = 34 (2^4 + 10*6 = 16+60 = 76)
+
+Q3 : You have been given a 3 digit number as input. Return the product of its digits.
+prodDigits(235) = 30 (2*3*5 = 30)
+prodDigits(909) = 0 (9*0*9 = 0)
+prodDigits(555) = 125 (5*5*5 = 125)
+
+Q4 : You have been given 3 booleans as input bool1, bool2 and bool3. Return true if exactly two of them are true.
+trueTwo(true,false,true) = true
+trueTwo(true,true,true) = false
+trueTwo(false,false,true) = false
+trueTwo(true,true,false) = true
+
+
+Q5 : You have been given three numbers x, y and z as input. Compute the value of x^2 + y^3 + z^4 and return the last digit (one's digit) of the computed value.
+lastDigit(2,3,4) = 5 (4+27+256 = 287, last digit is 7)
+lastDigit(10,6,5) = 1 (100+216+625 = 941, last digit is 1)
+
+Q6 : You have been given two numbers x and y as input. Return true, if any one of x, y, x+y or x-y is divisible by 5. Note that we will check x-y if x>=y otherwise we will check y-x.
+isDivBy5(22,13) = true (22+13 = 35 which is divisible by 5)
+isDivBy5(17,32) = true (32-17 = 15 which is divisible by 5)
+isDivBy5(21,11) = true (21-11 = 10 which is divisible by 5)
+isDivBy5(28,28) = true (28-28 = 0 which is divisible by 5)
+isDivBy5(22,24) = false
+
+Q7 : You have been given three numbers x, y and z as input. Return the middle number. The middle number is the number that will come in the middle if we arrange the three numbers in ascending order.
+midNumber(10,20,12) = 12 (the numbers in order are 10,12,20 and 12 comes in the middle)
+midNumber(10,20,10) = 10 (the numbers in order are 10,10,20 and 10 comes in the middle)
+midNumber(10,10,10) = 10 (the numbers in order are 10,10,10 and 10 comes in the middle)
+
+Q8 : You have been given a char as input. If the char is an alphabet change its case and return it. If it is not an alphabet, return it as it is.
+alphaChangeCase('5') = '5'
+alphaChangeCase('d') = 'D'
+alphaChangeCase('W') = 'w'
+alphaChangeCase('#') = '#'
+
+
+Q9 : You have been given 4 numbers as input. Return true if there exist two number amongst them a and b such that a > 2b. 
+greaterThan2(2,3,4,2) = false
+greaterThan2(2,3,4,5) = true ( 5 > 2*2)
+
+Q10 : A game is being played with the following rules : 
+- The first player says 1, the next 2 and so on.
+- If a number is a multiple of 4 or 7 then that number is skipped and the next number is spoken. However if the number is a multiple of both 4 and 7 then the number is not skipped.
+Define a function which taken a number n as input and returns the nth number which will be spoken.
+nthNumber(10) = 15  (the order of numbers spoken is 1,2,3,5,6,9,10,11,13,15)
+
+Q11 : You have been given 4 numbers as input. Return the number whose product of the digits is the maximum
+maxProd(223,332,55,808) = 55 (5*5 = 25 which is greater than 2*2*3=12, 3*3*2=18 and 8*0*8=0)
+
+Q12 : Given a number n as input, return the smallest prime that is greater than 2*n
+prime2n(20) = 41 (41 is the smallest prime greater than 2*20 = 40)
+prime2n(100) = 211 (211 is the smallest prime greater than 2*100 = 200)
+
+Q13 : 4 ints have been provided as input. Return true if the sum of any two of them is a power of 2.
+isSumPowerOf2(16,9,20,23) = true (9+23 = 32, which is 2^5)
+isSumPowerOf2(16,33,11,100) = false (none of 16+33=49, 16+11 = 27, 33+11 = 44, 16+100 = 116, 33+100 = 133, 11+100 = 111 is a power of 2)
+
+
+Q14 : You have been given a string consisting of digits, alphabets and other characters as input. If n1 is the number of digits, n2 is the number of alphabets and n3 is number of other characters in the string, return the highest of n1, n2 and n3.
+maxType("a12bn,*%42$q@") = 5(n1=4,n2=4,n3=5)
+maxType("a1*A") = 2(n1=1,n2=2,n3=1)
+
+Q15 : You have been given two strings s1 and s2 and a char ch as input. Return true if ch occurs the same number of times in s1 and s2.
+isCountSame("dress","sea shells",'s') = false (count of 's' in "dress" is 2 and count in "sea shells" is 3)
+isCountSame("trisect tech","institute",'t') = true (count of 't' is 3 in both)
+
+Q16 : Given a String as input, return a string in which digits come first, followed by lowercase chars followed by uppercase chars.
+convert("a1b2A3Xz") = "123abzAX"
+convert("ABC123xyz") = "123xyzABC"
+
+Q17 : Given a String as input, if the char in the String is a digit it is replaced by 9 - its value, else it remains as it is. So a char '4' is replaced by '5' (9-4 = 5) or '0' is replaced by '9'.
+replaceDigits("a12B$0x7") = "a87B$9x2" ( '1' is replaced by '8', '2' by '7', '0' by '9' and '7' by '2'. Rest remain as it is)
+replaceDigits("abcd#$%we") = "abcd#$%we" (no change as there are no digits)
+replaceDigits("328978243") = "671021756"
+
+
+
+Q18 : Given a string as input, return the character that appears the most number of times in it.
+
+Q19 :  Given a string as input, return a string containing the characters that appear at least twice in the string
+    char2Times("hello") = "l" (l is present at least twice)
+    char2Times("trisect teaches code ") = "tsec" (t,e,c are present at least twice)
+    char2Times("India") = "" (no char is present at least twice)
+
+Q20:  Given a string as input, return the following output
+   create("1234") = "1234 234 34 4"
+   create("ABCAB") = "ABCAB BCAB CAB AB B"
+   create("ABC") = "ABC BC C"
+   create("") = ""
+   create("X") = "X"
+   create("XY") = "XY X"   
+
+Q21:  Given three strings s1, s2 and s3 as input, return true if there exists at least one character that is present in all 3 strings s1, s2 and s3.
+   presentIn3("trisect", "learn", "code") = true (as e is present is all)
+   presentIn3("Google", "Apple", "Microsoft") = false (as no character is present is all)
+   
+   
+   
+Q22 : Given an array of numbers as input, return the largest number in the input.
+maxNumber({2,0,-1,12,3,0}) = 12
+
+Q23 : Given an array of numbers as input, return the number which has the maximum of 9's in it. If no number has the digit 9 in it, return -1. If two or more numbers have the same maximum number of 9's return the smallest number.
+max9s({2,9,12,99,0}) = 99
+max9s({2,0,12,3,0}) = -1
+max9s({29091,90,1299,3,79}) = 1299
+
+Q24 : Given an array of String and a char as input, return an array in which all the strings which do not have that char are removed.
+noChar({"abc","cde","def","ghi","abcd"},'d') = {"cde","def","abcd"} (abc and ghi do not have the char d)
+noChar({"123","456","789","1234","5678","9"},'4') = {"456","1234"}
+noChar({"abc","cde","def","ghi","abcd"},'x') = {}
+Note that the output array has the correct number of elements.
+
+Q25 : You have been given an array of chars as input. Return true if the array contains duplicates else return false.
+hasDupChars({'2','0','$','d','$','1'}) = true (as '$' occurs more than once )
+hasDupChars({'w','7','s','$','a','7'}) = true (as '7' occurs more than once )
+hasDupChars({'1','q','@','2','w','#'}) = false (as no char occurs more than once )  
+
+
+Q26 : Given an array of strings as input, return an array of all strings that have repeated chars that appear together. For e.g. in "hello" l  and in "summer" s is a repeated char that appears together. However in "robot" o is not a repeated char as it does not appear together.
+repeatChars({"hello","robot","summer","elephant"}) = {"hello","summer"}
+
+Q27 : You have been given an array of int as input. Return the number of times the digit 1 appears in the array.
+count1s({2,11,5,199,4,7}) = 3 (twice in 11 and once in 199)
+count1s({234,-11,-105,23841,101010,705}) = 7 (twice in -11, once in -105, once in 23841 and thrice in 101010)
+
+Q28 : A game is being played with the following rules : 
+- The first player says 1, the next 2 and so on.
+- If a number is a multiple of 4 or 7 then that number is skipped and the next number is spoken. However if the number is a multiple of both 4 and 7 then the number is not skipped.
+Define a function which taken a number n as input and returns the nth number which will be spoken.
+nthNumber(10) = 15  (the order of numbers spoken is 1,2,3,5,6,9,10,11,13,15)
+
+Q29 : You have been given an array of int as input. Return true if there exist 2 numbers in the array whose sum is equal to the sum of the rest of the numbers in the array.
+twoSum({2,11,5,1,4,7}) = true (11+4 = 2+5+1+7)
+
+Q30 : You have been given a 2D array of char and a String as input. Return a string consisting of the chars in the input string which are not present in the 2D array.
+
+ 
+ Q31"
+
+Define a class Product having the fields name (of type String) and price (of type double).
+In a class TestProduct define the following methods
+- Product makeProduct(String name, double price) : creates a Product and returns it
+- void display(Product product) : displays the information about the product on the screen
+- Product cheaperProduct(Product product1, Product product2) : displays information about the cheaper product and returns it
+- double totalBill(Product product1, int quantity1, Product product2, int quantity2) : given that quantity1 units of product1 have been purchased and 
+quantity2 units of product2 have been purchased, calculates and returns the total bill amount. 
+  
+
+Q32:
+
+Define a class Passenger having the fields name (String), age (int), gender (char : M/F), weight (int). Define 2 constructors for this class, one with parameters and one which has no parameters.
+Also define a class Train in which there are the following functions. Note that there are no fields in the class Train.
+  - int getTotalWeight(Passenger[] passengers)  - returns the total weight of all the passengers in the input
+  - int countChildren(Passenger[] passengers)  - returns the number of children in the input passengers. A child is defined as age 12 or below
+  - int countGender(Passenger[] passengers, boolean male)  - returns the number of males if true else returns the number of females. A male has the gender 'M' and a female 'F'
+  - Passenger[] addPassenger(Passenger[] passengers, Passenger passenger1) - returns a Passenger[] which contains all the passengers and also passenger1.
+
+Q33)
+
+Define the following classes
+- Book which has the fields title(String), author (String), count (int). Also define the following function in the class
+  increment() : increases count by 1.
+  decrement() : reduces the count by 1. If count is 0, it remains 0.
+- Library which has a field books (of type Book[]). It also has the following functions
+  getCount(String title) : given the title of a book as parameter, return how many copies of the book are there in the library
+  getCount(Book book) : given the object of type Book as parameter, return how many copies are there of that book in the library
+  getCount() : returns the total number of books in the library
+  getDiffCount() : returns the number of different books in the library
+  addBook(Book book) : given an object of type Book as input, increment its count if it is in the library else adds the book.
+  removeBook(Book book) : given an object of type Book as input, decreases the count of that book if it exists in the library. If the count becomes 0, it is removed.
+Define all the constructors that are required and also draw and attach the class diagram. You can draw the class diagram on a paper and click a photograph with your mobile phone and email it along with the solution.
+
+
+Q34)
+
+
+   Define a class Marks as having the fields marks1, marks2, marks3 and maxMarks all of type int.
+In the class Marks 
+- define a constructor of the class whch takes 3 ints as input and assigns them to marks1, marks2 and mark3 respectively. It aslo assigns the maximum of marks1, marks2 and marks3 to maxMarks.
+- define a method getMaxMarks() which returns the maximum of marks1, marks2 and marks3.
+- define a method isPass() which returns true if the average of marks1, marks2 and marks3 is at least 40.
+Define a class StudentList which has the field allMarks(of type Marks[]). In the class, define the methods 
+- totalStudents() which returns the number of total students which is the number of objects in the array allMarks
+- passCount() which returns the number of students who have passed.
+
+You have been given a Vector<String> as input. Remove all the duplicate strings from it. Note that the duplicates should be removed from the vector provided as input and no new vector should be created.
+
+Define a class Point having 2 fields x (int) and y (int) which represents a point (x,y)
+Define a class Line having 2 Points, pt1 and pt2.
+Define a class Quadrilateral having 4 Points, pt1, pt2, pt3 and pt4. The class also has the following functions 
+- getAllLines() which returns a Line[] consisting all 4 lines of the Quadrilateral. Note that the 4 lines of the quadrilateral will be pt1:pt2, pt2:pt3, pt3:pt4 and pt4:pt1 
+- longestSide() which return a Line that represents the longest the side of the Quadrilateral.
+Also define the constructors for each class and draw the class diagrams.
+
+  
+   
+   
