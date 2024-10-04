@@ -2243,3 +2243,246 @@ public class Main {
     }
 }
 ======
+
+
+Scanner example:
+
+
+package methods.samsung;
+
+import java.util.Scanner;
+
+public class ScannnerExample {
+
+    public static void main(String[] args) {
+
+        ScannnerExample scannnerExample=new ScannnerExample();
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Enter first value");
+        int  num1 = Integer.parseInt(scanner.next());
+        System.out.println("Enter Second Value");
+        int num2 = Integer.parseInt(scanner.next());
+
+        int add =scannnerExample.add(num2, num1);
+
+        System.out.println(add);
+
+    }
+
+    public int add(int a,int b)
+    {
+        return a+b;
+    }
+}
+====================
+
+convert string to integer or float or double
+
+
+package methods.samsung;
+
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class ScannnerExample {
+
+    public static void main(String[] args) {
+
+
+        String a="10";
+
+        float i = Float.parseFloat(a);
+
+        System.out.println(i);
+
+
+    }
+
+
+}
+=====================
+
+Calengine Example with interface and abstact
+
+package methods.interfacefullexample;
+
+public interface MathProcessing {
+    public String SEPARATOR = " ";
+
+    public String getKeyword();
+
+    public double doCalculation(double leftVal, double rightVal);
+}
+====
+package methods.interfacefullexample;
+
+public abstract class CalculateBase {
+    private double leftValue;
+    private double rightValue;
+    private double result;
+
+    CalculateBase() {
+
+    }
+
+    CalculateBase(double leftValue, double rightValue) {
+        this.leftValue = leftValue;
+        this.rightValue = rightValue;
+    }
+
+    public double getLeftValue() {
+        return leftValue;
+    }
+
+    public void setLeftValue(double leftValue) {
+        this.leftValue = leftValue;
+    }
+
+    public double getRightValue() {
+        return rightValue;
+    }
+
+    public void setRightValue(double rightValue) {
+        this.rightValue = rightValue;
+    }
+
+    public double getResult() {
+        return result;
+    }
+
+    public void setResult(double result) {
+        this.result = result;
+    }
+
+
+    public abstract  void calculate();
+}
+====
+package methods.interfacefullexample;
+
+public class DynamicHelper {
+
+    MathProcessing[] handlers;
+
+    public DynamicHelper() {
+
+    }
+
+    public DynamicHelper(MathProcessing[] handlers) {
+        this.handlers = handlers;
+    }
+
+    public void procesing(String statement) {
+        String[] split = statement.split(MathProcessing.SEPARATOR);// add 9 9
+        String keyword = split[0];
+        double leftValue = Double.parseDouble(split[1]);
+        double rightValue = Double.parseDouble(split[2]);
+
+        MathProcessing mathProcessing = null;
+
+        for (MathProcessing mathProcessing1 : handlers) {
+            if (keyword.equalsIgnoreCase(mathProcessing1.getKeyword())) {
+                mathProcessing = mathProcessing1;
+                break;
+            }
+        }
+        double result = mathProcessing.doCalculation(leftValue, rightValue);
+        System.out.println("Result" + result);
+    }
+
+}
+===
+package methods.interfacefullexample;
+
+public class Adder extends CalculateBase implements MathProcessing {
+
+
+    public Adder() {
+
+    }
+
+    public Adder(double leftValue, double rightValue) {
+        super(leftValue, rightValue);
+    }
+
+
+    public void calculate() {
+        double value = getLeftValue() + getRightValue();
+        setResult(value);
+    }
+
+
+
+    @Override
+    public String getKeyword() {
+        return "add";
+    }
+
+    @Override
+    public double doCalculation(double leftVal, double rightVal) {
+        setLeftValue(leftVal);
+        setRightValue(rightVal);
+        calculate();
+        return getResult();
+    }
+}
+===
+package methods.interfacefullexample;
+
+public class Divide extends  CalculateBase implements MathProcessing{
+
+    public Divide() {
+
+    }
+
+    public Divide(double leftValue, double rightValue) {
+        super(leftValue, rightValue);
+    }
+    public void calculate() {
+        double value = getLeftValue() / getRightValue();
+        setResult(value);
+    }
+
+    @Override
+    public String getKeyword() {
+        return "divide";
+    }
+
+    public double doCalculation(double leftVal, double rightVal) {
+        setLeftValue(leftVal);
+        setRightValue(rightVal);
+        calculate();
+        return getResult();
+    }
+}
+===
+
+package methods.interfacefullexample;
+
+import methods.classbasics.Main;
+
+import java.util.Scanner;
+
+public class Maininheritence {
+
+    public static void main(String[] args) {
+
+
+        Maininheritence.dynamicinteractivity();
+
+
+    }
+
+    private static void dynamicinteractivity() {
+        DynamicHelper helper = new DynamicHelper(new MathProcessing[]{
+                new Adder(),new Divide()
+        });
+  // add 9 9
+        System.out.println("Enter an operation add two numbers");
+        Scanner scanner = new Scanner(System.in);
+
+        String userInput = scanner.nextLine();
+        helper.procesing(userInput);
+    }
+}
+===============================
