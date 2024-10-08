@@ -2486,3 +2486,253 @@ public class Maininheritence {
     }
 }
 ===============================
+
+
+Exception Handling:
+
+
+package exceptionhandling;
+
+public class ArthematicExample {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 0;
+
+        ArthematicExample arthematicExample = new ArthematicExample();
+        int divide = arthematicExample.divide(10, 0);
+        System.out.println(divide);
+        System.out.println("program end!!");
+
+    }
+
+    public int divide(int a, int b) {
+        int res = 0;
+        try {
+            res = a / b;
+        } catch (ArithmeticException exception) {
+            System.out.println("invalid input!!");
+        }
+        return res;
+    }
+}
+================================================================
+
+Step2:
+
+package exceptionhandling;
+
+public class ArthematicExample {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 10;
+        int divide = 0;
+
+        ArthematicExample arthematicExample = new ArthematicExample();
+        try {
+            divide = arthematicExample.divide(a, b);
+        } catch (ArithmeticException ex) {
+            System.out.println("please enter valid number");
+        }
+        System.out.println(divide);
+        System.out.println("program end!!");
+
+    }
+
+    public int divide(int a, int b) throws ArithmeticException {
+        int res = a / b;
+        return res;
+    }
+}
+=======================================
+
+package exceptionhandling;
+
+public class NumberFormatExce {
+
+    public static void main(String[] args) {
+
+        NumberFormatExce numberFormatExce = new NumberFormatExce();
+        int i = numberFormatExce.converNumber("ooo");
+        System.out.println(i);
+    }
+
+
+    public int converNumber(String input) {
+        int i = 0;
+        try {
+            i = Integer.parseInt(input);
+        } catch (NumberFormatException ex) {
+            System.out.println("Please enter valid number format string ex: 9999");
+        }
+        return i;
+    }
+}
+=====================
+package exceptionhandling;
+
+public class NumberFormatExce {
+
+    public static void main(String[] args) {
+        int i = 0;
+        NumberFormatExce numberFormatExce = new NumberFormatExce();
+        try {
+            i = numberFormatExce.converNumber("78");
+        } catch (NumberFormatException ex) {
+            System.out.println("Please enter valid number format string");
+        }
+        System.out.println(i);
+    }
+
+
+    public int converNumber(String input) throws NumberFormatException {
+        int i = Integer.parseInt(input);
+        return i;
+    }
+}
+=========================
+
+package exceptionhandling;
+
+public class NullPoint {
+
+    public static void main(String[] args) {
+
+        NullPoint nullPoint = new NullPoint();
+        String name = null;
+        int i = nullPoint.lenghtofString(name);
+        System.out.println(i);
+    }
+
+    public int lenghtofString(String input) {
+        int length = 0;
+        try {
+            length = input.length();
+        } catch (NullPointerException ex) {
+            System.out.println("please enter valid string");
+        }
+        return length;
+    }
+}
+====================
+package exceptionhandling;
+
+public class NullPoint {
+    public static void main(String[] args) {
+        NullPoint nullPoint = new NullPoint();
+        String name = null;
+        int i = 0;
+        try {
+            i = nullPoint.lenghtofString(name);
+        } catch (NullPointerException ex) {
+            System.out.println("Please enter valid input");
+        }
+        System.out.println(i);
+    }
+
+    public int lenghtofString(String input) throws NullPointerException {
+        int length = 0;
+        length = input.length();
+        return length;
+    }
+}
+=================================
+
+
+package exceptionhandling;
+
+import methods.interfacefullexample.A;
+
+public class ArrayEx {
+    public static void main(String[] args) {
+
+        int[] arr = new int[4];
+        arr[0] = 1;
+        arr[1] = 2;
+        arr[2] = 4;
+        arr[3] = 9;
+
+        ArrayEx arrayEx = new ArrayEx();
+        int index = 0;
+        try {
+            index = arrayEx.getIndex(arr, 4);
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("Please enter valid index==index range is only 4");
+        }
+        System.out.println(index);
+
+
+    }
+
+
+    public int getIndex(int[] arr, int index) throws ArrayIndexOutOfBoundsException {
+        int i = arr[index];
+        return i;
+    }
+}
+=====================
+package exceptionhandling;
+
+import methods.interfacefullexample.A;
+
+public class ArrayEx {
+    public static void main(String[] args) {
+
+        int[] arr = new int[4];
+        arr[0] = 1;
+        arr[1] = 2;
+        arr[2] = 4;
+        arr[3] = 9;
+
+        ArrayEx arrayEx = new ArrayEx();
+        int index = 0;
+        index = arrayEx.getIndex(arr, 4);
+        System.out.println(index);
+
+
+    }
+
+
+    public int getIndex(int[] arr, int index) {
+        int i = 0;
+        try {
+            i = arr[index];
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            System.out.println("Please enter valid index");
+        }
+        return i;
+    }
+}
+====================
+
+package exceptionhandling;
+
+public class MultipleCat {
+
+    public static void main(String[] args) {
+       try {
+           int res = 10 / 10;
+           System.out.println(res);
+
+           String str = "phani";
+           System.out.println(str.length());
+
+           int[] arr = new int[5];
+           System.out.println(arr[2]);
+       }
+       catch (ArithmeticException arithmeticException)
+       {
+           System.out.println("Please enter valid number!!");
+       }
+       catch (NullPointerException ex)
+       {
+           System.out.println("Please enter valid string");
+       }
+       catch (ArrayIndexOutOfBoundsException ex)
+       {
+           System.out.println("Please enter valid index");
+       }
+
+    }
+}
+=================================================
+
