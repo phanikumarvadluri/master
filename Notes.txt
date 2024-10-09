@@ -2736,3 +2736,263 @@ public class MultipleCat {
 }
 =================================================
 
+package exceptionhandling;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+public class ReadFIle {// checked exception
+    public static void main(String[] args)  {
+
+        ReadFIle readFIle=new ReadFIle();
+        try {
+            readFIle.readFIle();
+        } catch (IOException e) {
+            System.out.println("Looks like no txt file available");
+        }
+    }
+
+    public void readFIle() throws IOException {
+        String filePath="C:\\Users\\ADMIN\\Downloads\\demo (1)\\firstapp\\src\\exceptionhandling\\datadup.txt";
+        List<String> lines=Files.readAllLines(Paths.get(filePath));
+        System.out.println(lines);
+    }
+}
+
+============================
+
+User defined exception:
+
+
+package exceptionhandling;
+
+public class InvalidAgeException extends Exception {//checked exception
+
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+===============
+
+package exceptionhandling;
+
+public class AgeValidator {
+
+    public static void main(String[] args) {
+
+
+        AgeValidator ageValidator = new AgeValidator();
+        try {
+            ageValidator.validate(19);
+        } catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public void validate(int age) throws InvalidAgeException {
+        if (age > 18) {
+            System.out.println("eligible for vote in india");
+        } else {
+            throw new InvalidAgeException("Please enter valid age > 18");
+        }
+    }
+}
+===========================================
+package exceptionhandling;
+
+public class InvalidInputException extends RuntimeException{//unchecked
+
+    public InvalidInputException(String message)
+    {
+        super(message);
+    }
+}
+=====
+package exceptionhandling;
+
+public class NegativeCheck {
+    public static void main(String[] args) {
+        try {
+            NegativeCheck.check(99);
+        } catch (InvalidInputException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public static void check(int num) throws InvalidInputException {
+        if (num < 0) {
+            throw new InvalidInputException("not a possitive number");
+        } else {
+            System.out.println("Valid Number");
+        }
+    }
+}
+======================================
+=================================================
+
+MultiThreading:
+without thread:
+
+
+package MultiThreading;
+
+public class Sample {
+
+    public static void main(String[] args) {
+
+        Sample m1 = new Sample();
+        m1.m1();
+        m1.m2();
+        m1.m3();
+    }
+
+    public void m1() {
+        for (int i = 10; i < 10000; i++) {
+            System.out.println(i);
+        }
+    }
+
+    public void m2() {
+        for (int i = 200000; i < 230000; i++) {
+            System.out.println(i);
+        }
+    }
+
+
+    public void m3() {
+        for (int i = 300000; i < 350000; i++) {
+            System.out.println(i);
+        }
+    }
+}
+=============================================
+with THread class
+package MultiThreading;
+
+public class SampleThread3 extends Thread{
+    public void run() {
+        for (int i = 300000; i < 350000; i++) {
+            System.out.println(i);
+        }
+    }
+}
+===
+package MultiThreading;
+
+public class SampleWithThread1 extends Thread {
+
+    public void run() {
+        for (int i = 10; i < 10000; i++) {
+            System.out.println(i);
+        }
+    }
+}
+===package MultiThreading;
+
+   public class SampleWithThread2 extends Thread {
+
+       public void run() {
+           for (int i = 200000; i < 230000; i++) {
+               System.out.println(i);
+           }
+       }
+   }
+   ====
+   package MultiThreading;
+
+   public class Test {
+       public static void main(String[] args) {
+           SampleWithThread1 sampleWithThread1=new SampleWithThread1();
+           SampleWithThread2 sampleWithThread2=new SampleWithThread2();
+           SampleThread3 sampleThread3=new SampleThread3();
+           sampleWithThread1.start();
+           sampleWithThread2.start();
+           sampleThread3.start();
+   //
+   //        RunnableInterfaceThread1 runnableInterfaceThread1=new RunnableInterfaceThread1();
+   //        Thread t1=new Thread(runnableInterfaceThread1);
+   //        t1.start();
+   //
+   //        RunnableInterfaceThread2 runnableInterfaceThread2=new RunnableInterfaceThread2();
+   //        Thread t2=new Thread(runnableInterfaceThread2);
+   //        t2.start();
+   //
+   //        RunnbleInterfaceThread3 runnableInterfaceThread3=new RunnbleInterfaceThread3();
+   //        Thread t3=new Thread(runnableInterfaceThread3);
+   //        t3.start();
+
+
+
+       }
+   }
+
+=============================
+
+with Runnable Interface:
+
+package MultiThreading;
+
+public class RunnableInterfaceThread1  implements Runnable  {
+    @Override
+    public void run() {
+        for (int i = 10; i < 10000; i++) {
+            System.out.println(i);
+        }
+    }
+}
+==
+package MultiThreading;
+
+public class RunnableInterfaceThread2 implements Runnable{
+    @Override
+    public void run() {
+        for (int i = 200000; i < 230000; i++) {
+            System.out.println(i);
+        }
+    }
+}
+==
+package MultiThreading;
+
+public class RunnbleInterfaceThread3 implements Runnable{
+    @Override
+    public void run() {
+        for (int i = 300000; i < 350000; i++) {
+            System.out.println(i);
+        }
+    }
+}
+
+
+package MultiThreading;
+
+public class Test {
+    public static void main(String[] args) {
+//        SampleWithThread1 sampleWithThread1=new SampleWithThread1();
+//        SampleWithThread2 sampleWithThread2=new SampleWithThread2();
+//        SampleThread3 sampleThread3=new SampleThread3();
+//        sampleWithThread1.start();
+//        sampleWithThread2.start();
+//        sampleThread3.start();
+//
+        RunnableInterfaceThread1 runnableInterfaceThread1=new RunnableInterfaceThread1();
+        Thread t1=new Thread(runnableInterfaceThread1);
+        t1.start();
+
+        RunnableInterfaceThread2 runnableInterfaceThread2=new RunnableInterfaceThread2();
+        Thread t2=new Thread(runnableInterfaceThread2);
+        t2.start();
+
+        RunnbleInterfaceThread3 runnableInterfaceThread3=new RunnbleInterfaceThread3();
+        Thread t3=new Thread(runnableInterfaceThread3);
+        t3.start();
+
+
+
+    }
+}
+=====================================
