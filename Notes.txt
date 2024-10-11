@@ -3105,3 +3105,239 @@ class PriorityDemo extends Thread {
     }
 }
 =====
+
+Join example:
+
+package MultiThreading;
+
+public class Joinexample implements Runnable {
+    @Override
+    public void run() {
+
+        for (int i = 0; i < 10000; i++) {
+            System.out.println(Thread.currentThread().getName() + " running " + i);
+        }
+
+    }
+
+
+    public static void main(String[] args) {
+
+        Joinexample je = new Joinexample();
+
+        Thread t1 = new Thread(je);
+
+        t1.start();
+
+        try {
+            t1.join();//  currrent thread main stop, t1 continuee.........
+        } catch (InterruptedException e) {
+            System.out.println("interuppted");
+        }
+        System.out.println(Thread.currentThread().getName() + "   Thread execution completed....");
+    }
+}
+========================
+package MultiThreading;
+
+public class Joinexample implements Runnable {
+    @Override
+    public void run() {
+
+        for (int i = 0; i < 10000; i++) {
+            System.out.println(Thread.currentThread().getName() + " running " + i);
+        }
+
+    }
+
+
+    public static void main(String[] args) {
+
+        Joinexample je = new Joinexample();
+
+        Thread t1 = new Thread(je);
+
+        t1.start();
+
+        Thread t2 = new Thread(je);
+
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();//  currrent thread main stop, t1 continuee.........
+        } catch (InterruptedException e) {
+            System.out.println("interuppted");
+        }
+        System.out.println(Thread.currentThread().getName() + "   Thread execution completed....");
+    }
+}
+===================================
+Synchronization method:
+
+package MultiThreading;
+
+public class Counter  {
+
+    private int count = 0;
+
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+=================
+
+
+package MultiThreading;
+
+public class Counting1 extends Thread {
+    private Counter counter;
+
+    Counting1(Counter counter) {
+        this.counter = counter;
+    }
+
+    public void run() {
+        for (int i = 0; i < 100000; i++) {
+            counter.increment();
+        }
+    }
+}
+
+=====
+package MultiThreading;
+
+public class TesterCount {
+
+    public static void main(String[] args) {
+
+
+        Counter counter = new Counter();
+
+        Counting1 ex1 = new Counting1(counter);
+        ex1.start();
+
+        Counting1 ex2 = new Counting1(counter);
+        ex2.start();
+        Counting1 ex3 = new Counting1(counter);
+        ex3.start();
+
+        Counting1 ex4 = new Counting1(counter);
+        ex4.start();
+
+        Counting1 ex5 = new Counting1(counter);
+        ex5.start();
+
+        try {
+            ex1.join();
+            ex2.join();
+            ex3.join();
+            ex4.join();ex5.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Final count " + counter.getCount());
+
+    }
+}
+=============================
+
+Producer consumer problem:
+
+package MultiThreading.producerconsumer;
+
+public class SharedBuffer {
+    private int item;
+    private boolean isProduced = false;
+
+    public synchronized void produce(int value) throws InterruptedException {
+        while (isProduced) {
+            wait();
+        }
+        item = value;
+        System.out.println("Produced::" + item);
+        isProduced = true;
+        notify();
+    }
+
+    public synchronized void consume() throws InterruptedException {
+        while (!isProduced) {
+            wait();
+        }
+
+        System.out.println("Consume:::" + item);
+        isProduced = false;
+        notify();
+    }
+}
+======
+package MultiThreading.producerconsumer;
+
+public class Producer implements Runnable {
+    SharedBuffer sharedBuffer;
+
+    Producer(SharedBuffer sharedBuffer) {
+        this.sharedBuffer = sharedBuffer;
+    }
+
+    @Override
+    public void run() {
+        int value = 0;
+        try {
+            while (true) {
+                sharedBuffer.produce(++value);
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+===
+package MultiThreading.producerconsumer;
+
+public class Consumer implements  Runnable{
+    SharedBuffer sharedBuffer;
+
+    Consumer( SharedBuffer sharedBuffer)
+    {
+        this.sharedBuffer=sharedBuffer;
+    }
+    @Override
+    public void run() {
+        System.out.println("Consumer calling");
+        try {
+            while(true) {
+                sharedBuffer.consume();
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+====
+package MultiThreading.producerconsumer;
+
+public class Main {
+    public static void main(String[] args) {
+
+        SharedBuffer sharedBuffer=new SharedBuffer();
+        Producer producer=new Producer(sharedBuffer);
+        Thread t1=new Thread(producer);
+        Consumer consumer=new Consumer(sharedBuffer);
+
+        Thread t2=new Thread(consumer);
+
+        t1.start();
+        t2.start();
+    }
+}
+=====
+
