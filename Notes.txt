@@ -3794,7 +3794,7 @@ public class HashsetExample {
     }
 }
 
-
+==================================================
 package CollectionFramework.map;
 
 import java.util.HashMap;
@@ -3821,6 +3821,37 @@ public class HashmapExample {
 
     }
 }
+=========================
+
+package CollectionFramework.map;
+
+import demo.Employee;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class HashmapExample {
+    public static void main(String[] args) {
+
+        HashMap<Integer, Employee> map=new HashMap<>();
+        map.put(1,new Employee("Phani",30,new String[]{"crikcet","tv"}));
+        map.put(2,new Employee("niharika",29,new String[]{"crikcet","tv"}));
+        map.put(3,new Employee("Santhosh",32,new String[]{"crikcet","tv"}));
+        map.put(4,new Employee("sreekar",27,new String[]{"crikcet","tv"}));
+        map.put(5,new Employee("ravali",28,new String[]{"crikcet","tv"}));
+
+        //System.out.println(map);
+
+        Set<Map.Entry<Integer, Employee>> entries = map.entrySet();
+
+        for(Map.Entry entry:entries){
+            System.out.println(entry.getKey()+"   "+entry.getValue() );
+        }
+
+    }
+}
+======================================================
 
 
 
