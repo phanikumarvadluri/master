@@ -3341,3 +3341,459 @@ public class Main {
 }
 =====
 
+
+Colletion Framework:
+
+Array limitations:
+1) add two more elements to exising array:
+
+package CollectionFramework;
+
+public class Demo {
+    public static void main(String[] args) {
+
+        int[] arr = new int[3];
+
+        arr[0] = 1;
+        arr[1] = 2;
+        arr[2] = 3;// added some values-- modify exsing--
+
+        //add 2 more elements
+        int[] newrray = new int[arr.length + 2];
+        //old array value copy
+        for (int i = 0; i < arr.length; i++) {
+            newrray[i] = arr[i];
+        }
+
+        newrray[3] = 4;
+        newrray[4] = 5;
+
+
+        for (int res : newrray) {
+            System.out.println(res);
+        }
+
+
+    }
+}
+==========
+
+delete index:
+
+package CollectionFramework;
+
+public class DeleteaElement {
+    public static void main(String[] args) {
+
+        int[] originalArray = {1, 2, 3, 4, 5};
+
+        int indexToDelete = 2;
+
+
+        int[] newArray = new int[originalArray.length - 1];//4
+
+        for (int i = 0, j = 0; i < originalArray.length; i++) {
+            if (i != indexToDelete) {
+                newArray[j++] = originalArray[i];
+            }
+        }
+
+        for(int i=0;i<newArray.length;i++)
+        {
+            System.out.println(newArray[i]);
+        }
+
+    }
+}
+==============================
+
+modify:
+
+package CollectionFramework;
+
+public class Main {
+    public static void main(String[] args) {
+        // Original array
+        int[] array = {1, 2, 3, 4, 5};
+
+        // Index of the element to modify
+        int indexToModify = 2; // Changing the element at index 2 (which is 3)
+
+        // New value to assign
+        int newValue = 10;
+
+        // Check if the index is valid
+        if (indexToModify >= 0 && indexToModify < array.length) {
+            // Modify the element at the specified index
+            array[indexToModify] = newValue;
+        } else {
+            System.out.println("Invalid index");
+        }
+
+        // Print the modified array
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
+    }
+}
+
+=============================
+
+package CollectionFramework;
+
+public class Employee {
+
+    private String name;
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    private int age;
+
+    public Employee(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public Employee(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+=======
+    package CollectionFramework;
+
+    public class DemoEmployee {
+
+        public static void main(String[] args) {
+
+            Employee[] arr = new Employee[3];
+
+            arr[0] = new Employee("phani",30);
+            arr[1] = new Employee("sreekar",25);
+            arr[2]= new Employee("Sai",33);
+
+
+    //        for(Employee emp: arr){
+    //            System.out.println(emp);
+    //        }
+
+            for(int i=0;i<arr.length;i++)
+            {
+                System.out.println(arr[i]);
+            }
+
+
+        }
+    }
+=================
+
+
+package CollectionFramework;
+
+public class DeleteaElementEmployee {
+    public static void main(String[] args) {
+
+        Employee[] arr = new Employee[3];
+
+        arr[0] = new Employee("phani",30);
+        arr[1] = new Employee("sreekar",25);
+        arr[2]= new Employee("Sai",33);
+
+        int indexToDelete = 0;
+
+
+        Employee[] newArray = new Employee[arr.length - 1];//2
+
+        for (int i = 0, j = 0; i < arr.length; i++) {
+            if (i != indexToDelete) {
+                newArray[j++] = arr[i];
+            }
+        }
+
+        for(int i=0;i<newArray.length;i++)
+        {
+            System.out.println(newArray[i]);
+        }
+
+    }
+}
+==============================================
+
+Arralist example:
+
+package CollectionFramework.ArrayListttt;
+
+import java.util.ArrayList;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(1);
+        arrayList.add(2);
+        arrayList.add(3);
+        System.out.println("Original array" + arrayList);
+        arrayList.add(4);
+        arrayList.add(5);
+        System.out.println("adding" + arrayList);
+        arrayList.remove(3);
+        System.out.println("removing" + arrayList);
+        arrayList.set(3, 1000);
+        System.out.println(arrayList);
+    }
+}
+==================================================
+
+arraylist iteration using enhansed for loop:
+
+package CollectionFramework.ArrayListttt;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class IteratorList {
+
+    public static void main(String[] args) {
+        List<Integer> arrayList = new ArrayList<>();
+        arrayList.add(20);
+        arrayList.add(35);
+        arrayList.add(-15);
+        arrayList.add(7);
+        arrayList.add(55);
+        arrayList.add(1);
+        arrayList.add(-22);
+
+//        for(int i=0;i<arrayList.size();i++)
+//        {
+//            System.out.println(arrayList.get(i));
+//        }
+
+        for(Integer res:arrayList)
+        {
+            System.out.println(res);
+        }
+    }
+}
+=========================
+
+
+package CollectionFramework.ArrayListttt;
+
+import demo.Address;
+import demo.Employee;
+import methods.classbasics.Add;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ConcurrentIterator {
+    public static void main(String[] args) {
+
+        List<Address> arrayList = new ArrayList<>();
+        arrayList.add(new Address("HYD","TS"));
+        arrayList.add(new Address("Vizag","AP"));
+        arrayList.add(new Address("Delhi","Delhi"));
+        arrayList.add(new Address("Pune","Mumbai"));
+
+        for(Address res:arrayList)
+        {
+            System.out.println(res);
+        }
+    }
+}
+==================
+
+concurrent modification exception when two threads work in arraylist:also known as fail fast.
+
+package CollectionFramework.ArrayListttt;
+
+import demo.Address;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ConcurrentIterator {
+    public static void main(String[] args) {
+
+        List<Address> arrayList = new ArrayList<>();
+        arrayList.add(new Address("HYD","TS"));
+        arrayList.add(new Address("Vizag","AP"));
+        arrayList.add(new Address("Delhi","Delhi"));
+        arrayList.add(new Address("Pune","Mumbai"));
+        //iteration
+        for(Address res:arrayList)
+        {
+            arrayList.add(new Address("Chandigar","punjab"));//Exception in thread "main" java.util.ConcurrentModificationException
+            System.out.println(res);
+        }
+    }
+}
+
+===
+No concurrent modification exception when two threads work in copyonwritearraylist:also known as fail safe.
+
+
+package CollectionFramework.ArrayListttt;
+
+import demo.Address;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class CopyonWriteArrayListExample {
+    public static void main(String[] args) {
+        List<Address> arrayList = new CopyOnWriteArrayList<>();
+        arrayList.add(new Address("HYD","TS"));
+        arrayList.add(new Address("Vizag","AP"));
+        arrayList.add(new Address("Delhi","Delhi"));
+        arrayList.add(new Address("Pune","Mumbai"));
+
+        System.out.println(arrayList);
+
+        for(Address res:arrayList)
+        {
+            arrayList.add(new Address("Chandigar","punjab"));//no exception
+            System.out.println(res);
+        }
+    }
+}
+
+=========================
+
+Hashset:
+
+package CollectionFramework.setcollections;
+
+import java.util.HashSet;
+
+public class HashsetExample {
+
+    public static void main(String[] args) {
+
+
+        HashSet<Integer> hashSet=new HashSet<>();
+        hashSet.add(10);
+        hashSet.add(20);
+        hashSet.add(30);
+        hashSet.add(40);
+        hashSet.add(50);
+        hashSet.add(50);
+
+        System.out.println(hashSet);
+    }
+}
+===================================
+
+package CollectionFramework.setcollections;
+
+import demo.Employee;
+
+import java.util.HashSet;
+
+public class HashsetExample {
+
+    public static void main(String[] args) {
+
+
+        HashSet<Employee> hashSet=new HashSet<>();
+        String[] hobbies={"Cricket","hockey"};
+        hashSet.add(new Employee("phani",30,hobbies));
+        hashSet.add(new Employee("sreekar",30,hobbies));
+        hashSet.add(new Employee("chandini",29,hobbies));
+        hashSet.add(new Employee("chandini",29,hobbies));
+
+        System.out.println(hashSet);
+    }
+}
+===============================================
+
+concurrent modification exception:
+
+package CollectionFramework.setcollections;
+
+import demo.Employee;
+
+import java.util.HashSet;
+
+public class HashsetExample {
+
+    public static void main(String[] args) {
+
+
+        HashSet<Employee> hashSet=new HashSet<>();
+        String[] hobbies={"Cricket","hockey"};
+        hashSet.add(new Employee("phani",30,hobbies));
+        hashSet.add(new Employee("sreekar",30,hobbies));
+        hashSet.add(new Employee("chandini",29,hobbies));
+        hashSet.add(new Employee("chandini",29,hobbies));
+
+
+
+        for(Employee employee:hashSet)
+        {
+    // when ever multiple threads(one thread= for loop, other thread== adding - reason hashset is not thread safe)
+            hashSet.add(new Employee("ravali",29,hobbies));//java.util.ConcurrentModificationException
+            System.out.println(employee);
+        }
+    }
+}
+
+=======================================
+
+NO concurrent modification exception:-CopyOnWriteArraySet
+package CollectionFramework.setcollections;
+
+import demo.Employee;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArraySet;
+
+public class HashsetExample {
+
+    public static void main(String[] args) {
+
+
+        Set<Employee> hashSet=new CopyOnWriteArraySet<>();
+        String[] hobbies={"Cricket","hockey"};
+        hashSet.add(new Employee("phani",30,hobbies));
+        hashSet.add(new Employee("sreekar",30,hobbies));
+        hashSet.add(new Employee("chandini",29,hobbies));
+        hashSet.add(new Employee("chandini",29,hobbies));
+
+
+
+        for(Employee employee:hashSet)
+        {
+    // when ever multiple threads(one thread= for loop, other thread== adding - reason hashset is not thread safe)
+            hashSet.add(new Employee("ravali",29,hobbies));//java.util.ConcurrentModificationException
+
+        }
+        System.out.println(hashSet);
+    }
+}
+
+
+
+
