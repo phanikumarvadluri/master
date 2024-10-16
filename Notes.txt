@@ -3853,6 +3853,128 @@ public class HashmapExample {
 }
 ======================================================
 
+package streamapi;
+
+import demo.Employee;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayListExample {
+
+    public static void main(String[] args) {
+
+
+        List<Integer> list = new ArrayList<>();
+
+        list.add(10);
+        list.add(21);
+        list.add(30);
+
+
+        // System.out.println(list);
+        // iterate
+
+        ArrayListExample arrayListExample = new ArrayListExample();
+        List<Integer> evenList = arrayListExample.getEvenList(list);
+        System.out.println(evenList);
+
+
+    }
+
+    public List<Integer> getEvenList(List<Integer> totalList) {
+        List<Integer> evenList = new ArrayList<>();
+        for (Integer res : totalList) {
+            if(res%2==0) {
+                evenList.add(res);
+            }
+        }
+        return evenList;
+    }
+}
+=============================================
+
+
+package streamapi;
+
+import demo.Employee;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class ArrayListExample {
+
+    public static void main(String[] args) {
+
+
+        List<Integer> list = new ArrayList<>();
+
+        list.add(10);
+        list.add(21);
+        list.add(30);
+
+       // stream api
+
+        List<Integer> collect = list.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+        System.out.println(collect);
+
+
+    }
+
+
+}
+===============================
+Lamda Basic:
+
+//package streamapi;
+//
+//public class SampleForEachSum implements Runnable {
+//
+//    @Override
+//    public void run() {
+//        for(int i=0;i<10000;i++)
+//        {
+//            System.out.println(Thread.currentThread().getName()  +"    "+i);
+//        }
+//    }
+//}
+
+
+=====
+
+
+package streamapi;
+
+public class Tester {
+
+    public static void main(String[] args) {
+
+//        Runnable runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                for (int i = 0; i < 10000; i++) {
+//                    System.out.println(Thread.currentThread().getName() + "    " + i);
+//                }
+//            }
+//        };
+
+        Runnable runnable = () -> {
+            for (int i = 0; i < 10000; i++) {
+                System.out.println(Thread.currentThread().getName() + "    " + i);
+            }
+        };
+
+        Thread thread1 = new Thread(runnable);
+        Thread thread2 = new Thread(runnable);
+
+        thread1.start();
+        thread2.start();
+
+    }
+}
+======
+
 
 
 
