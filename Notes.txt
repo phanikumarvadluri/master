@@ -3974,7 +3974,92 @@ public class Tester {
     }
 }
 ======
+Database connectivity:
 
+package databaseconnectivity;
+
+import java.sql.*;
+
+public class Databaseconnection {
+
+    public static void main(String[] args) throws SQLException {
+
+        String jdbcUrl = "jdbc:mysql://localhost:3306/iplace";
+        String username = "root";
+        String password = "Kalhonaho02&";
+
+        Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
+
+        Statement statement = connection.createStatement();
+
+        String query="select * from employee";
+
+        ResultSet resultSet = statement.executeQuery(query);
+
+        while(resultSet.next())
+        {
+            System.out.println("Id :"+ resultSet.getInt("id") );
+            System.out.println("Name :"+ resultSet.getString("name") );
+            System.out.println("Age :"+ resultSet.getString("age") );
+            System.out.println("---------------------------------------");
+        }
+    }
+}
+
+===================================
+
+package databaseconnectivity;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class InsertIntoDb {
+    public static void main(String[] args) throws SQLException {
+        String jdbcUrl = "jdbc:mysql://localhost:3306/iplace";
+        String username = "root";
+        String password = "Kalhonaho02&";
+
+        Connection connection= DriverManager.getConnection(jdbcUrl,username,password);
+
+        Statement statement = connection.createStatement();
+
+        String insertEMployee="INSERT INTO `iplace`.`employee` (`id`, `name`, `age`) VALUES ('9', 'Vinay', '45')";
+
+        statement.execute(insertEMployee);
+
+    }
+}
+========
+
+package databaseconnectivity;
+
+public class Employee {
+
+    private int id;
+    private String name;
+    private String age;
+
+    public Employee(int id, String name, String age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+}
+=======================
 
 
 
