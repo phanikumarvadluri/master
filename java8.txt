@@ -244,7 +244,208 @@ Function
 Supplier
 Consumer
 
-below are the Example for above functional interfaces:
+below are the Example for above functional interfaces using stream api:
+
+
+
+Print Odd numbers with out stream api and predicate:
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+
+public class PrintOddNumber {
+
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers=new ArrayList<>();
+        ArrayList<Integer> oddNumber=new ArrayList<>();
+        numbers.add(10);
+        numbers.add(13);
+        numbers.add(15);
+        numbers.add(20);
+
+        //print odd numbers
+
+        for(Integer number:numbers)
+        {
+            if(number%2==1)
+            {
+                oddNumber.add(number);
+            }
+        }
+
+        System.out.println(oddNumber);
+
+
+    }
+}
+===========================
+With Stream API and Filter & Predicate annonoumous inner class(here filter method is taking Predicate as argument)
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class PrintOddNumber {
+
+    public static void main(String[] args) {
+
+
+        ArrayList<Integer> numbers=new ArrayList<>();
+        numbers.add(10);
+        numbers.add(13);
+        numbers.add(15);
+        numbers.add(20);
+
+        //print odd numbers
+
+        Predicate<Integer> predicate =new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer integer) {
+                return integer%2==1;
+            }
+        };
+
+        List<Integer> oddNumbers = numbers.stream().filter(predicate).collect(Collectors.toList());
+        System.out.println(oddNumbers);
+
+
+    }
+}
+====================================================================
+
+With Stream API and Filter & Predicate lamda(here filter method is taking Predicate as argument)
+
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class PrintOddNumber {
+
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers=new ArrayList<>();
+        numbers.add(10);
+        numbers.add(13);
+        numbers.add(15);
+        numbers.add(20);
+
+        //print odd numbers
+
+        Predicate<Integer> predicate =(Integer integer)-> {
+                return integer%2==1;
+        };
+
+        List<Integer> oddNumbers = numbers.stream().filter(predicate).collect(Collectors.toList());
+        System.out.println(oddNumbers);
+    }
+}
+============================================================================
+
+2) Print names to Capital letter:
+
+
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+
+public class ConvertStringtoUpperCase {
+    public static void main(String[] args) {
+        ArrayList<String> names=new ArrayList<>();
+        ArrayList<String> capNames=new ArrayList<>();
+        names.add("sahith");
+        names.add("santhosh");
+        names.add("niharika");
+        names.add("sreekar");
+
+
+        for(String name: names)
+        {
+            capNames.add(name.toUpperCase());
+        }
+
+        System.out.println(capNames);
+
+    }
+}
+===========================================================
+same using stream api and Map method(here map will  take Function functional interface as argument- annonmous class implementation)
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class ConvertStringtoUpperCase {
+    public static void main(String[] args) {
+        ArrayList<String> names=new ArrayList<>();
+        names.add("sahith");
+        names.add("santhosh");
+        names.add("niharika");
+        names.add("sreekar");
+
+        Function<String,String> function=new Function<String, String>() {
+            @Override
+            public String apply(String s) {
+                return s.toUpperCase();
+            }
+        };
+
+        List<String> collect = names.stream().map(function).collect(Collectors.toList());
+        System.out.println(collect);
+
+
+    }
+}
+======================================================
+lamda style:
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class ConvertStringtoUpperCase {
+    public static void main(String[] args) {
+        ArrayList<String> names=new ArrayList<>();
+        names.add("sahith");
+        names.add("santhosh");
+        names.add("niharika");
+        names.add("sreekar");
+
+        Function<String,String> function=(String s)-> {
+                return s.toUpperCase();
+        };
+
+        List<String> collect = names.stream().map(function).collect(Collectors.toList());
+        System.out.println(collect);
+
+
+    }
+}
+======================================
+
+Consumer and Supplier do samples in chat GPT
+
+========================================================================================
+
+
+
+
+
+
+
 
 
 
