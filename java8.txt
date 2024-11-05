@@ -1,0 +1,250 @@
+Sample Vehicle Interface implementation:
+
+package com.example.oauth2.config;
+
+public interface Vehicle {
+
+    public void wheels();
+}
+
+
+implement above interface with some classes
+
+package com.example.oauth2.config;
+
+public class Car implements  Vehicle{
+    @Override
+    public void wheels() {
+        System.out.println("4 wheels");
+    }
+}
+
+
+package com.example.oauth2.config;
+
+public class Bus implements Vehicle{
+    @Override
+    public void wheels() {
+        System.out.println("10 wheels");
+    }
+}
+
+
+package com.example.oauth2.config;
+
+public class Truck implements  Vehicle{
+    @Override
+    public void wheels() {
+        System.out.println("12 wheels");
+    }
+}
+
+
+Testing Above classes:
+
+package com.example.oauth2.config;
+
+public class App {
+
+    public static void main(String[] args) {
+
+        Vehicle car=new Car();
+        car.wheels();
+
+        Vehicle bus=new Bus();
+        bus.wheels();
+
+        Vehicle truck=new Truck();
+        truck.wheels();
+
+
+    }
+}
+==================================================================================
+
+Instead of Creating implementation classes saparately we can use annonomous inner classes like below will work.
+
+
+package com.example.oauth2.config;
+
+public class AnnounmousImplementation {
+
+    public static void main(String[] args) {
+
+        Vehicle car=new Vehicle() {
+            @Override
+            public void wheels() {
+                System.out.println("4 wheels");
+            }
+        };
+        car.wheels();
+
+        Vehicle bus=new Vehicle() {
+            @Override
+            public void wheels() {
+                System.out.println("10 wheels");
+            }
+        };
+        bus.wheels();
+
+        Vehicle truck=new Vehicle() {
+            @Override
+            public void wheels() {
+                System.out.println("12 wheels");
+            }
+        };
+        truck.wheels();
+    }
+}
+
+==========================================================================================
+
+Replacing annoumous classes with lamda:
+
+package com.example.oauth2.config;
+
+public class LamdaImplementation {
+
+    public static void main(String[] args) {
+
+        Vehicle car=() ->{
+                System.out.println("4 wheels");
+        };
+        car.wheels();
+
+        Vehicle bus=()-> {
+                System.out.println("10 wheels");
+        };
+        bus.wheels();
+
+        Vehicle truck=()-> {
+                System.out.println("12 wheels");
+        };
+        truck.wheels();
+    }
+}
+=============================================
+
+
+Note: from above code we implemented lamda expression for Vehicle functional interface.
+
+====================================================
+Implementing Runnable Function interface:
+
+package com.example.oauth2.config;
+
+public class Print1to10Numbers implements  Runnable {
+    @Override
+    public void run() {
+        for(int i=1;i<=10;i++)
+        {
+            System.out.println(Thread.currentThread().getName()+i);
+        }
+    }
+}
+
+
+package com.example.oauth2.config;
+
+public class Print30to50Number implements Runnable{
+    @Override
+    public void run() {
+        for(int i=30;i<=50;i++)
+        {
+            System.out.println(Thread.currentThread().getName()+i);
+        }
+    }
+}
+
+
+package com.example.oauth2.config;
+
+public class TestRunnble {
+    public static void main(String[] args) {
+
+        Print1to10Numbers print1to10Numbers=new Print1to10Numbers();
+        Thread t1=new Thread(print1to10Numbers);
+        t1.start();
+
+        Print30to50Number print30to50Number=new Print30to50Number();
+        Thread t2=new Thread(print1to10Numbers);
+        t2.start();
+    }
+}
+==============================================================
+
+Implementating Runnable with annonoumous classes:
+
+package com.example.oauth2.config;
+
+public class TestRunnble {
+    public static void main(String[] args) {
+
+        Runnable print1to10Numbers = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 1; i <= 10; i++) {
+                    System.out.println(Thread.currentThread().getName() + i);
+                }
+            }
+        };
+        Thread t1 = new Thread(print1to10Numbers);
+        t1.start();
+
+        Runnable print30to50Number = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 30; i <= 50; i++) {
+                    System.out.println(Thread.currentThread().getName() + i);
+                }
+            }
+        };
+        Thread t2 = new Thread(print1to10Numbers);
+        t2.start();
+    }
+}
+
+======================================
+
+Implementing Runnable with lamda:
+
+package com.example.oauth2.config;
+
+public class TestRunnble {
+    public static void main(String[] args) {
+
+        Runnable print1to10Numbers = () ->{
+                for (int i = 1; i <= 10; i++) {
+                    System.out.println(Thread.currentThread().getName() + i);
+                }
+        };
+        Thread t1 = new Thread(print1to10Numbers);
+        t1.start();
+
+        Runnable print30to50Number = ()-> {
+                for (int i = 30; i <= 50; i++) {
+                    System.out.println(Thread.currentThread().getName() + i);
+                }
+        };
+        Thread t2 = new Thread(print1to10Numbers);
+        t2.start();
+    }
+}
+==============================================================================================================
+
+
+
+
+
+
+Few of predefined functional interfaces in java8
+
+Predicate
+Function
+Supplier
+Consumer
+
+below are the Example for above functional interfaces:
+
+
+
