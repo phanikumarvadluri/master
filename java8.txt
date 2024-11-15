@@ -1,0 +1,451 @@
+Sample Vehicle Interface implementation:
+
+package com.example.oauth2.config;
+
+public interface Vehicle {
+
+    public void wheels();
+}
+
+
+implement above interface with some classes
+
+package com.example.oauth2.config;
+
+public class Car implements  Vehicle{
+    @Override
+    public void wheels() {
+        System.out.println("4 wheels");
+    }
+}
+
+
+package com.example.oauth2.config;
+
+public class Bus implements Vehicle{
+    @Override
+    public void wheels() {
+        System.out.println("10 wheels");
+    }
+}
+
+
+package com.example.oauth2.config;
+
+public class Truck implements  Vehicle{
+    @Override
+    public void wheels() {
+        System.out.println("12 wheels");
+    }
+}
+
+
+Testing Above classes:
+
+package com.example.oauth2.config;
+
+public class App {
+
+    public static void main(String[] args) {
+
+        Vehicle car=new Car();
+        car.wheels();
+
+        Vehicle bus=new Bus();
+        bus.wheels();
+
+        Vehicle truck=new Truck();
+        truck.wheels();
+
+
+    }
+}
+==================================================================================
+
+Instead of Creating implementation classes saparately we can use annonomous inner classes like below will work.
+
+
+package com.example.oauth2.config;
+
+public class AnnounmousImplementation {
+
+    public static void main(String[] args) {
+
+        Vehicle car=new Vehicle() {
+            @Override
+            public void wheels() {
+                System.out.println("4 wheels");
+            }
+        };
+        car.wheels();
+
+        Vehicle bus=new Vehicle() {
+            @Override
+            public void wheels() {
+                System.out.println("10 wheels");
+            }
+        };
+        bus.wheels();
+
+        Vehicle truck=new Vehicle() {
+            @Override
+            public void wheels() {
+                System.out.println("12 wheels");
+            }
+        };
+        truck.wheels();
+    }
+}
+
+==========================================================================================
+
+Replacing annoumous classes with lamda:
+
+package com.example.oauth2.config;
+
+public class LamdaImplementation {
+
+    public static void main(String[] args) {
+
+        Vehicle car=() ->{
+                System.out.println("4 wheels");
+        };
+        car.wheels();
+
+        Vehicle bus=()-> {
+                System.out.println("10 wheels");
+        };
+        bus.wheels();
+
+        Vehicle truck=()-> {
+                System.out.println("12 wheels");
+        };
+        truck.wheels();
+    }
+}
+=============================================
+
+
+Note: from above code we implemented lamda expression for Vehicle functional interface.
+
+====================================================
+Implementing Runnable Function interface:
+
+package com.example.oauth2.config;
+
+public class Print1to10Numbers implements  Runnable {
+    @Override
+    public void run() {
+        for(int i=1;i<=10;i++)
+        {
+            System.out.println(Thread.currentThread().getName()+i);
+        }
+    }
+}
+
+
+package com.example.oauth2.config;
+
+public class Print30to50Number implements Runnable{
+    @Override
+    public void run() {
+        for(int i=30;i<=50;i++)
+        {
+            System.out.println(Thread.currentThread().getName()+i);
+        }
+    }
+}
+
+
+package com.example.oauth2.config;
+
+public class TestRunnble {
+    public static void main(String[] args) {
+
+        Print1to10Numbers print1to10Numbers=new Print1to10Numbers();
+        Thread t1=new Thread(print1to10Numbers);
+        t1.start();
+
+        Print30to50Number print30to50Number=new Print30to50Number();
+        Thread t2=new Thread(print1to10Numbers);
+        t2.start();
+    }
+}
+==============================================================
+
+Implementating Runnable with annonoumous classes:
+
+package com.example.oauth2.config;
+
+public class TestRunnble {
+    public static void main(String[] args) {
+
+        Runnable print1to10Numbers = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 1; i <= 10; i++) {
+                    System.out.println(Thread.currentThread().getName() + i);
+                }
+            }
+        };
+        Thread t1 = new Thread(print1to10Numbers);
+        t1.start();
+
+        Runnable print30to50Number = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 30; i <= 50; i++) {
+                    System.out.println(Thread.currentThread().getName() + i);
+                }
+            }
+        };
+        Thread t2 = new Thread(print1to10Numbers);
+        t2.start();
+    }
+}
+
+======================================
+
+Implementing Runnable with lamda:
+
+package com.example.oauth2.config;
+
+public class TestRunnble {
+    public static void main(String[] args) {
+
+        Runnable print1to10Numbers = () ->{
+                for (int i = 1; i <= 10; i++) {
+                    System.out.println(Thread.currentThread().getName() + i);
+                }
+        };
+        Thread t1 = new Thread(print1to10Numbers);
+        t1.start();
+
+        Runnable print30to50Number = ()-> {
+                for (int i = 30; i <= 50; i++) {
+                    System.out.println(Thread.currentThread().getName() + i);
+                }
+        };
+        Thread t2 = new Thread(print1to10Numbers);
+        t2.start();
+    }
+}
+==============================================================================================================
+
+
+
+
+
+
+Few of predefined functional interfaces in java8
+
+Predicate
+Function
+Supplier
+Consumer
+
+below are the Example for above functional interfaces using stream api:
+
+
+
+Print Odd numbers with out stream api and predicate:
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+
+public class PrintOddNumber {
+
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers=new ArrayList<>();
+        ArrayList<Integer> oddNumber=new ArrayList<>();
+        numbers.add(10);
+        numbers.add(13);
+        numbers.add(15);
+        numbers.add(20);
+
+        //print odd numbers
+
+        for(Integer number:numbers)
+        {
+            if(number%2==1)
+            {
+                oddNumber.add(number);
+            }
+        }
+
+        System.out.println(oddNumber);
+
+
+    }
+}
+===========================
+With Stream API and Filter & Predicate annonoumous inner class(here filter method is taking Predicate as argument)
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class PrintOddNumber {
+
+    public static void main(String[] args) {
+
+
+        ArrayList<Integer> numbers=new ArrayList<>();
+        numbers.add(10);
+        numbers.add(13);
+        numbers.add(15);
+        numbers.add(20);
+
+        //print odd numbers
+
+        Predicate<Integer> predicate =new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer integer) {
+                return integer%2==1;
+            }
+        };
+
+        List<Integer> oddNumbers = numbers.stream().filter(predicate).collect(Collectors.toList());
+        System.out.println(oddNumbers);
+
+
+    }
+}
+====================================================================
+
+With Stream API and Filter & Predicate lamda(here filter method is taking Predicate as argument)
+
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class PrintOddNumber {
+
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers=new ArrayList<>();
+        numbers.add(10);
+        numbers.add(13);
+        numbers.add(15);
+        numbers.add(20);
+
+        //print odd numbers
+
+        Predicate<Integer> predicate =(Integer integer)-> {
+                return integer%2==1;
+        };
+
+        List<Integer> oddNumbers = numbers.stream().filter(predicate).collect(Collectors.toList());
+        System.out.println(oddNumbers);
+    }
+}
+============================================================================
+
+2) Print names to Capital letter:
+
+
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+
+public class ConvertStringtoUpperCase {
+    public static void main(String[] args) {
+        ArrayList<String> names=new ArrayList<>();
+        ArrayList<String> capNames=new ArrayList<>();
+        names.add("sahith");
+        names.add("santhosh");
+        names.add("niharika");
+        names.add("sreekar");
+
+
+        for(String name: names)
+        {
+            capNames.add(name.toUpperCase());
+        }
+
+        System.out.println(capNames);
+
+    }
+}
+===========================================================
+same using stream api and Map method(here map will  take Function functional interface as argument- annonmous class implementation)
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class ConvertStringtoUpperCase {
+    public static void main(String[] args) {
+        ArrayList<String> names=new ArrayList<>();
+        names.add("sahith");
+        names.add("santhosh");
+        names.add("niharika");
+        names.add("sreekar");
+
+        Function<String,String> function=new Function<String, String>() {
+            @Override
+            public String apply(String s) {
+                return s.toUpperCase();
+            }
+        };
+
+        List<String> collect = names.stream().map(function).collect(Collectors.toList());
+        System.out.println(collect);
+
+
+    }
+}
+======================================================
+lamda style:
+
+package com.example.oauth2.config;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class ConvertStringtoUpperCase {
+    public static void main(String[] args) {
+        ArrayList<String> names=new ArrayList<>();
+        names.add("sahith");
+        names.add("santhosh");
+        names.add("niharika");
+        names.add("sreekar");
+
+        Function<String,String> function=(String s)-> {
+                return s.toUpperCase();
+        };
+
+        List<String> collect = names.stream().map(function).collect(Collectors.toList());
+        System.out.println(collect);
+
+
+    }
+}
+======================================
+
+Consumer and Supplier do samples in chat GPT
+
+========================================================================================
+
+
+
+
+
+
+
+
+
+
